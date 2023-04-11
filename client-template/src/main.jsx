@@ -1,19 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
-import Products from './pages/products';
-import Create from './pages/admin/CreateProduct';
-import Manage from './pages/admin/ManageProducts';
-import Update from './pages/admin/UpdateProduct';
-import Root from './pages/Root';
-import Checkout from './pages/Checkout';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import "./index.css";
+import Products from "./pages/products";
+import Create from "./pages/admin/CreateProduct";
+import Manage from "./pages/admin/ManageProducts";
+import Update from "./pages/admin/UpdateProduct";
+import Root from "./pages/Root";
+import Checkout from "./pages/Checkout";
 
-
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
   {
@@ -27,28 +23,25 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <Create />,
-        children: [
-          {
-            path: "admin/manage-product",
-            element: <Manage />,
-          },
-          {
-            path: "admin/update-product",
-            element: <Update />,
-          },
-        ]
+      },
+      {
+        path: "/admin/manage-product",
+        element: <Manage />,
+      },
+      {
+        path: "/admin/update-product",
+        element: <Update />,
       },
       {
         path: "/checkout",
-        element: <Checkout />
-      }
-    ]
+        element: <Checkout />,
+      },
+    ],
   },
 ]);
 
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider  router={router}/>
-  </React.StrictMode>,
-)
+    <RouterProvider router={router} />
+  </React.StrictMode>
+);
