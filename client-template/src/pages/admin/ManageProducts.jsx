@@ -9,25 +9,42 @@ const ManageProducts = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setError] = useState(null);
 
-  useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const response = await fetch(URL);
-        const DATA = await response.json();
-        if (!response.ok) {
-          throw new Error("Opps! we couldn't fetch the data");
-        }
-        setData(DATA);
-        setIsLoading(false);
-        console.log(DATA);
-      } catch (err) {
-        setIsLoading(false);
-        console.log(err);
-        setError(err);
+  async function fetchProducts() {
+    try {
+      const response = await fetch(URL);
+      const DATA = await response.json();
+      if (!response.ok) {
+        throw new Error("Opps! we couldn't fetch the data");
       }
+      setData(DATA);
+      setIsLoading(false);
+      console.log(DATA);
+    } catch (err) {
+      setIsLoading(false);
+      console.log(err);
+      setError(err);
     }
+  }
+
+  useEffect(() => {
     fetchProducts();
   }, []);
+
+  const handleDelete = (id)=>{
+    fetch(URL +"/" + id, {
+      method: 'DELETE'
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to delete data');
+        }
+        console.log(`Data with ID ${id} deleted successfully`);
+        fetchProducts()
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
 
   if (isLoading) {
     return <CenterMessage>Loading...</CenterMessage>;
@@ -61,9 +78,9 @@ const ManageProducts = () => {
                 <TD>{item.price}</TD>
                 <TD>{item.stock}</TD>
                 <TD>{new Date(item.date).toLocaleDateString()}</TD>
-                <TD>
-                  <button>Update</button>
-                  <button>Delete</button>
+                <TD className="actions">
+                  <Link to={"/admin/update-product"} >Update</Link>
+                  <Link onClick={()=>handleDelete(item._id)}>Delete</Link>
                 </TD>
               </tr>
             )
@@ -79,6 +96,8 @@ const Title = styled.p`
   text-align: center;
 `;
 
+
+
 const NavLink = styled(Link)`
   font-size: 16px;
   text-align: center;
@@ -89,6 +108,19 @@ const Table = styled.table`
   border-collapse: collapse;
   width: 70%;
   margin: 0 auto;
+
+  & tr:nth-child(even){
+    background-color: lightgray;
+  }
+
+  & .actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border-top: none;
+    border-left: none;
+  }
 `
 const TD = styled.td`
   border: 1px solid black;
@@ -103,6 +135,10 @@ const CenterMessage = styled.div`
 const TH = styled(TD)`
   font-size: 18px;
   font-weight: 600;
+  text-align: left;
+  padding-left: 10px;
+  background-color: skyblue;
+  color: #000;
 `
 const Header = styled.div`
   display: flex;
