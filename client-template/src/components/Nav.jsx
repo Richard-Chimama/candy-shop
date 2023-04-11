@@ -1,8 +1,13 @@
 import React from 'react'
+import { Link} from 'react-router-dom'
 
 const Nav = () => {
   return (
-    <div>Nav</div>
+    <nav>
+      <Link to="/"></Link>
+
+
+    </nav>
   )
 }
 
