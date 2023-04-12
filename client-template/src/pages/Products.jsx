@@ -41,7 +41,7 @@ const Products = () => {
                       <img src={pun.image} alt='here should be a image'></img>
                       <h2>{pun.title}</h2>
                       <p>{pun.price} SEK</p>
-                      <input type='number' value="0" />
+                      <input type='number' value="1" /> <br />
                       <button>Add to cart</button>
                       <p>In Stock</p>
 
