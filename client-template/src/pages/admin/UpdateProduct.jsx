@@ -90,7 +90,8 @@ const UpdateProduct = () => {
             <input
               value={update.image || ''}
               onChange={event => setUpdate ({...update, image: event.target.value})}
-              type='url' 
+              type='url'
+              required 
             />
           </label>
 
@@ -101,7 +102,8 @@ const UpdateProduct = () => {
             <input
               value={update.title || ''}
               onChange={event => setUpdate ({...update, title: event.target.value})}
-              type='text' 
+              type='text'
+              required 
             />
           </label>
 
@@ -112,7 +114,8 @@ const UpdateProduct = () => {
             <input
               value={update.price || ''}
               onChange={event => setUpdate({...update, price: event.target.value})}
-              type='text' 
+              type='text'
+              required
             />
           </label> 
 
@@ -123,7 +126,8 @@ const UpdateProduct = () => {
             <input
               value={update.stock || ''}
               onChange={event => setUpdate({...update, stock: event.target.value})}
-              type='text' 
+              type='text'
+              required 
             />
 
           </label>
@@ -137,6 +141,7 @@ const UpdateProduct = () => {
               onChange={event => setUpdate({...update, description: event.target.value})}
               type='text' 
               rows="12"
+              required
             />
           </label>
 
