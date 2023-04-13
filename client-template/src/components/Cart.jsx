@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import {FiTrash2} from "react-icons/fi"
 import { useNavigate } from "react-router-dom";
 
 const Cart = ({ data, resetData, closeCart }) => {
@@ -16,6 +17,10 @@ const Cart = ({ data, resetData, closeCart }) => {
     }
     setTotal(sum)
   }, [data.length])
+
+  const handleRemove = (id)=>{
+    resetData(data.filter((item)=> item.id !== id))
+  }
   
   
   return (
@@ -24,10 +29,11 @@ const Cart = ({ data, resetData, closeCart }) => {
         <p>No Item in the List</p>
       ) : (
         data.map((item, index) => (
-          <Content key={index}>
+          <Content key={item.id}>
             <Image src={item.image} alt={item.title} />
             <Title>{item.title}</Title>
             <Price>{item.price} kr</Price>
+            <button onClick={()=>handleRemove(item.id)}><FiTrash2 size={15}/></button>
           </Content>
         ))
       )}
@@ -76,7 +82,8 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
 `;
 const Title = styled.div`
   flex-grow: 3;
