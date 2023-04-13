@@ -2,10 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link, } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Div = styled.div `
-  max-width: 800px;
+const Title = styled.h1`
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`;
+
+const FormContainer = styled.div `
+  max-width: 600px;
   margin: 0 auto;
-  
+
 `;
 
 const Form = styled.form `
@@ -14,16 +19,39 @@ const Form = styled.form `
   button {
     box-sizing: border-box;
     width: 100%;
-    padding: 0.5rem;
-    margin: 0.5rem 0 1rem 0;
+    padding: 0.625rem;
+    margin: 0.3125rem 0 0.625rem 0;
+    border-radius: 0.625rem;
+  }
+
+  label,
+  input,
+  textarea,
+  button {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+  }
+
+  lable {
+    text-align: center;
   }
 
 `;
 
-const BackLink = styled(Link) `
-  text-decoration: none;
+const BtnsContainer = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
 `;
+
+const BackLink = styled(Link) `
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #333;
+  text-decoration: none;
+`;
+
 
 const UpdateProduct = () => {
   const [update, setUpdate] = useState({})
@@ -77,9 +105,9 @@ const UpdateProduct = () => {
   }
 
   return (
-    <Div>
+    <FormContainer>
 
-      <h1>Update product</h1>
+      <Title>Update product</Title>
 
       {
         <Form onSubmit={handleSubmit}>
@@ -162,14 +190,15 @@ const UpdateProduct = () => {
             />
           </label>
 
-          <button>Update</button>
-          <BackLink to="/admin/manage-product">&#8592; Back</BackLink>
-
+          <BtnsContainer>
+            <button>Update</button>
+            <BackLink to="/admin/manage-product">&#8592; Back</BackLink>
+          </BtnsContainer>
 
       </Form>
     }
 
-  </Div>
+  </FormContainer>
   )
   
 }
