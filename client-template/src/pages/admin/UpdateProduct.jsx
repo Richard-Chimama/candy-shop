@@ -114,7 +114,7 @@ const UpdateProduct = () => {
             <input
               value={update.price || ''}
               onChange={event => setUpdate({...update, price: event.target.value})}
-              type='text'
+              type='number'
               required
             />
           </label> 
@@ -126,7 +126,7 @@ const UpdateProduct = () => {
             <input
               value={update.stock || ''}
               onChange={event => setUpdate({...update, stock: event.target.value})}
-              type='text'
+              type='number'
               required 
             />
 
