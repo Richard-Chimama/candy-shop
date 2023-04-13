@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <Manage />,
       },
       {
-        path: "/admin/update-product",
+        path: "/admin/update-product/:id",
         element: <Update />,
       },
       {
