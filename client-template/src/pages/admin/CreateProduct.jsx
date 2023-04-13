@@ -1,7 +1,74 @@
 import React from 'react'
-import '../../Create.css'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import styled from 'styled-components'
+
+const Back = styled(Link) `
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #333;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`;
+
+const Textinput = styled.input `
+  width: 400px;
+  height: 25px;
+  border-radius: 10px;
+`;
+
+const Textarea = styled.textarea `
+  width: 400px;
+  border-radius: 10px;
+  height: 70px
+`;
+
+const CreateDiv = styled.div `
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`;
+
+const CreateButton = styled.button `
+  width: 400px;
+  border-radius: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  height: 30px;
+  margin: 15px;
+  font-size: 15px;
+`;
+
+const ImgLabel = styled.label `
+  width: 150px;
+  margin: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`;
+
+const BtnDiv = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+`;
+
+const ImgDiv = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin-left: 50px
+`;
+
+const ImgInput = styled.input `
+  margin-left: 50px;
+`;
+
 
 export const CreateProduct = () => {
     const [title, setTitle] = useState("")
@@ -33,80 +100,89 @@ export const CreateProduct = () => {
   return (
       <div id='create-container'>
 
-        <h1 id='create-h1'>Create product</h1>
+        <Title id='create-h1'>Create product</Title>
 
         <form onSubmit={handlesubmit}>
 
-          <div className='create-div'>
+          <CreateDiv className='create-div'>
+
+                   {/* TITLE */}
             <label>Title:</label>
-            <input  value={title} 
-                    onChange={e=>setTitle(e.target.value)} 
-                    type="text"
-                    className='input' 
-                    name="title"
-                    required
+            <Textinput  
+              value={title} 
+              onChange={e=>setTitle(e.target.value)} 
+              type="text"
+              className='input' 
+              name="title"
+              required
                      />
-          </div>
-
-          <div className='create-div'>
+          </CreateDiv>
+                    {/* CATEGORY */}
+          <CreateDiv className='create-div'>
               <label>Category:</label>
-              <input  value={category} 
-                      onChange={e=>setCategory(e.target.value)}  
-                      type="text"
-                      className='input'  
-                      name="category"
-                      required
+              <Textinput  
+                value={category} 
+                onChange={e=>setCategory(e.target.value)}  
+                type="text"
+                className='input'  
+                name="category"
+                required
                       />
-          </div>
-
-          <div className='create-div'>
+          </CreateDiv>
+                    {/* PRICE */}
+          <CreateDiv className='create-div'>
               <label>Price:</label>
-              <input  value={price} 
-                      onChange={e=>setPrice(e.target.value)} 
-                      type="number"
-                      className='input'  
-                      name="price"
-                      required
+              <Textinput  
+                value={price} 
+                onChange={e=>setPrice(e.target.value)} 
+                type="number"
+                className='input'  
+                name="price"
+                required
                       />
-          </div>
-
-          <div className='create-div'>
+          </CreateDiv>
+                     {/* STOCK */}
+          <CreateDiv className='create-div'>
               <label>Stock:</label>
-              <input  value={stock} 
-                      onChange={e=>setStock(e.target.value)} 
-                      type="number"
-                      className='input'  
-                      name="stock"
-                      required
+              <Textinput  
+                value={stock} 
+                onChange={e=>setStock(e.target.value)} 
+                type="number"
+                className='input'  
+                name="stock"
+                required
                       />
-          </div>
+          </CreateDiv>
                       
-          <div className='create-div'>
+                    {/* DESCRIPTION */} 
+          <CreateDiv className='create-div'>
               <label>Description:</label>
-              <textarea value={description} 
-                        onChange={e=>setDescription(e.target.value)} 
-                        type="text"  
-                        name="description"
-                        rows="12"
-                        required
+              <Textarea 
+                value={description} 
+                onChange={e=>setDescription(e.target.value)} 
+                type="text"  
+                name="description"
+                rows="12"
+                required
                         />
-          </div>
-
-          <div className='img-div'>
-              <label  className='img-label'>Choose image:</label>
-              <input  type="file" 
-                      className='img-input'
-                      id="avatar"
-                      name="avatar" 
-                      accept="image/png, image/jpeg"
+          </CreateDiv>
+                    {/* IMAGE INPUT */}
+          <ImgDiv className='img-div'>
+              <ImgLabel   className='img-label'>Choose image:</ImgLabel>
+              <ImgInput   
+                type="file" 
+                className='img-input'
+                id="avatar"
+                name="avatar" 
+                accept="image/png, image/jpeg"
                       />
-          </div>
+          </ImgDiv>
 
           
-          <div className='create-btns'> 
-              <button id='create-button' type='submit'>Create</button>
-              <Link className='link' to="/admin/manage-products">&#8592; Back </Link>
-          </div>
+          <BtnDiv className='create-btns'> 
+              <CreateButton type='submit'>Create</CreateButton>
+              <Back className='link' to="/admin/manage-products">&#8592; Back </Back>
+          </BtnDiv>
         </form>
     </div>
   )
