@@ -1,2 +1,3 @@
-# nors-store
+# candy-store
+
 Group work assignment
