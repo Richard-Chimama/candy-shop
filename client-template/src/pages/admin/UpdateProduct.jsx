@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link, } from 'react-router-dom'
 import styled from 'styled-components'
 
+const Div = styled.div `
+  max-width: 600px;
+  margin: 0 auto;
+`;
+
 const Title = styled.h1`
   text-align: center;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
-const FormContainer = styled.div `
-  max-width: 600px;
-  margin: 0 auto;
-
-`;
 
 const Form = styled.form `
   input,
@@ -29,11 +29,6 @@ const Form = styled.form `
   textarea,
   button {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
-  }
-
-  lable {
-    text-align: center;
   }
 
 `;
@@ -43,7 +38,6 @@ const BtnsContainer = styled.div `
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 `;
 
 const BackLink = styled(Link) `
@@ -105,7 +99,7 @@ const UpdateProduct = () => {
   }
 
   return (
-    <FormContainer>
+    <Div>
 
       <Title>Update product</Title>
 
@@ -198,7 +192,7 @@ const UpdateProduct = () => {
       </Form>
     }
 
-  </FormContainer>
+  </Div>
   )
   
 }
