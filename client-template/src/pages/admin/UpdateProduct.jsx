@@ -58,6 +58,7 @@ const UpdateProduct = () => {
         },
         body: JSON.stringify({
           title: update.title,
+          category: update.category,
           price: update.price,
           stock: update.stock,
           description: update.description,
@@ -83,18 +84,6 @@ const UpdateProduct = () => {
       {
         <Form onSubmit={handleSubmit}>
 
-          {/* Image URL */}
-          <label>
-            Image
-
-            <input
-              value={update.image || ''}
-              onChange={event => setUpdate ({...update, image: event.target.value})}
-              type='url'
-              required 
-            />
-          </label>
-
           {/* Title */}
           <label>
             Title
@@ -102,6 +91,18 @@ const UpdateProduct = () => {
             <input
               value={update.title || ''}
               onChange={event => setUpdate ({...update, title: event.target.value})}
+              type='text'
+              required 
+            />
+          </label>
+
+          {/* Title */}
+          <label>
+            Category
+
+            <input
+              value={update.category || ''}
+              onChange={event => setUpdate ({...update, category: event.target.value})}
               type='text'
               required 
             />
@@ -115,6 +116,8 @@ const UpdateProduct = () => {
               value={update.price || ''}
               onChange={event => setUpdate({...update, price: event.target.value})}
               type='number'
+              min="0"
+              max="1000"
               required
             />
           </label> 
@@ -127,6 +130,8 @@ const UpdateProduct = () => {
               value={update.stock || ''}
               onChange={event => setUpdate({...update, stock: event.target.value})}
               type='number'
+              min="0"
+              max="1000"
               required 
             />
 
@@ -142,6 +147,18 @@ const UpdateProduct = () => {
               type='text' 
               rows="12"
               required
+            />
+          </label>
+
+          {/* Image URL */}
+          <label>
+            Image
+
+            <input
+              value={update.image || ''}
+              onChange={event => setUpdate ({...update, image: event.target.value})}
+              type='url'
+              required 
             />
           </label>
 
