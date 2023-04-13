@@ -60,6 +60,7 @@ const Container = styled.div`
   right: 6rem;
   border: 1px solid #000;
   padding-bottom: 1rem;
+  background-color: white;
   width: 300px;
   font-family: Roboto;
   font-size: 14px;
