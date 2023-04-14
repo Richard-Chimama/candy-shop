@@ -10,10 +10,13 @@ const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <Container>
-      <NavLink to="/">Products</NavLink>
-      <NavLink to="/admin">Admin</NavLink>
+      <div>
+        <NavLink to="/">Products</NavLink>
+        <NavLink to="/admin">Admin</NavLink>
+      </div>
+
       <Cart onClick={() => setIsOpen(!isOpen)}>
-        <FaShoppingCart color="#333" size={25} />
+        <FaShoppingCart color="#FFFFF" size={25} />
         <span>({cartData.length})</span>
       </Cart>
       {isOpen && (
@@ -32,22 +35,22 @@ const NavLink = styled(Link)`
   font-family: Roboto;
   font-size: 22px;
   color: #333;
+  padding-right: 1rem;
+  color: white;
 `;
 
 const Cart = styled.div`
   display: flex;
   align-items: center;
   gap: 5px;
-  margin-left: auto;
+  color: white;
 `;
-
+  
 const Container = styled.nav`
+  height: 96px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; 
   align-items: center;
-  gap: 50px;
-  width: 80%;
-  margin: 0 auto;
 `;
 
 export default Nav;

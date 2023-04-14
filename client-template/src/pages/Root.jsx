@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Nav from "../components/Nav";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import LocalData from "../LocalData";
@@ -12,6 +12,9 @@ const Section = styled.section `
 
 const SectionInner = styled.div `
   grid-column: inner;
+  display: flex:
+  justify-content: space-between;
+  align-items: center;
 `
 
 const Root = () => {
@@ -46,7 +49,7 @@ const Root = () => {
   const [cartData, setCartData] = useState(data);
   return (
     <LocalData.Provider value={{ cartData, setCartData }}>
-      <Nav />
+      <Header />
 
       <Section>
         <SectionInner>

@@ -100,7 +100,6 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  width: 80%;
 `;
 
 const Image = styled.img`
