@@ -5,6 +5,7 @@ const Container = styled.section `
   display: grid;
   grid-template-columns: minmax(30px, 1fr) [inner-start] minmax(0, 70rem) [inner-end] minmax(30px, 1fr);
   height: 300px;
+  background-color: black;
 `;
   
 const ContainerInner = styled.div `
@@ -16,6 +17,7 @@ const ContainerInner = styled.div `
 
 const CopyRight = styled.p `
   font-family: roboto;
+  color: white;
 `;
 
 
