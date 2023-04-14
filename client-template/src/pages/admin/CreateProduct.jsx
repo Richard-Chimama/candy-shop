@@ -27,7 +27,7 @@ export const CreateProduct = () => {
               console.log(error)
             }
 
-            navigate('/admin/manage-products')
+            navigate('/admin/manage-product')
         }
     
   return (
