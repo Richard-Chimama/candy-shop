@@ -1,63 +1,40 @@
-import React, { useEffect, useState } from 'react'
-import { Link} from 'react-router-dom'
-
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import Product from "./Product";
 
 const Products = () => {
-  
-  const [puns, setPuns] = useState([]);
-  
-   
-
-  useEffect (() => {
-    fetchData()
-  }, [[]])
-
-
+  const [products, setProducts] = useState([]);
   const fetchData = async () => {
-
     try {
-      const response  = await fetch ('https://product-api-production-3a61.up.railway.app/products');
+      const response = await fetch(
+        "https://product-api-production-3a61.up.railway.app/products"
+      );
       const data = await response.json();
-      setPuns(data)
+      setProducts(data);
     } catch (error) {
-      console.log(data)
+      console.log(error);
     }
-  } 
+  };
 
-
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
-    <>
+    <Content>
+      {products.map((product) => (
+        <Product className="productItem" key={product._id} product={product} />
+      ))}
+    </Content>
+  );
+};
 
-     <h1>HELLO WORLD Nikola</h1> 
+const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 80%;
+`;
 
-     <section>
-
-      {
-
-        puns.map(pun => {
-          return <article key={pun['_id']}> 
-
-                      <img src={pun.image} alt='here should be a image'></img>
-                      <h2>{pun.title}</h2>
-                      <p>{pun.price} SEK</p>
-                      <input type='number' value="0" />
-                      <button>Add to cart</button>
-                      <p>In Stock</p>
-
-                       <Link to={'/product/' + pun['_id'] }>
-                          <i>Read more...</i>
-                       </Link>
-
-          </article>
-
-        })
-
-      }
-     </section>
-    
-    </>
-  )
-}
-
-export default Products
+export default Products;

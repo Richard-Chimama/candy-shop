@@ -76,7 +76,7 @@ const ManageProducts = () => {
               <TD>{item.stock}</TD>
               <TD>{new Date(item.date).toLocaleDateString()}</TD>
               <TD className="actions">
-                <Link to={"/admin/update-product"}>Update</Link>
+                <Link to={"/admin/update-product/"+item._id}>Update</Link>
                 <Link onClick={() => handleDelete(item._id)}>Delete</Link>
               </TD>
             </tr>
