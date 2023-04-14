@@ -4,8 +4,15 @@ import { Link} from 'react-router-dom'
 
 const Products = () => {
   
-  const [puns, setPuns] = useState([]);
+  const [candys, setCandy] = useState([]);
+
+
+/*    
+
+  const { cartData, setCartData } = useContext(LocalData);
+  const [ InputValue, setInputValue] = useState ("1")  
   
+  */
    
 
   useEffect (() => {
@@ -18,34 +25,48 @@ const Products = () => {
     try {
       const response  = await fetch ('https://product-api-production-3a61.up.railway.app/products');
       const data = await response.json();
-      setPuns(data)
+      setCandy(data)
     } catch (error) {
       console.log(data)
     }
   } 
+
+/*    
+    const addToCard = (data) => {
+    const num = Math.floor(Math.random = 1000)
+    setCartData((prevData) => [...prevData, {
+      id:num,
+      title: data.title,
+      image: data.image,
+      price: data. price,
+      item: 1
+    }])
+
+
+   */
 
 
 
   return (
     <>
 
-     <h1>HELLO WORLD Nikola</h1> 
+     <h1>Hello World </h1> 
 
      <section>
 
       {
 
-        puns.map(pun => {
-          return <article key={pun['_id']}> 
+        candys.map(candy => {
+          return <article key={candy['_id']}> 
 
-                      <img src={pun.image} alt='here should be a image'></img>
-                      <h2>{pun.title}</h2>
-                      <p>{pun.price} SEK</p>
-                      <input type='number' value="1" /> <br />
+                      <img src={candy.image} alt='here should be a image'></img>
+                      <h2>{candy.title}</h2>
+                      <p>{candy.price} SEK</p>
+                      <input type='number' value="1"/> <br />
                       <button>Add to cart</button>
                       <p>In Stock</p>
 
-                       <Link to={'/product/' + pun['_id'] }>
+                       <Link to={'/product/' + candy['_id'] }>
                           <i>Read more...</i>
                        </Link>
 
@@ -60,4 +81,5 @@ const Products = () => {
   )
 }
 
-export default Products
+
+export default Products;

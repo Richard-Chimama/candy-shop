@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
-import Products from "./pages/products";
+import Products from "./pages/Products";
+import Product from "./pages/product";
 import Create from "./pages/admin/CreateProduct";
 import Manage from "./pages/admin/ManageProducts";
 import Update from "./pages/admin/UpdateProduct";
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Products />,
+      },
+      {
+        path: "/product/:id",
+        element: <Product />,
       },
       {
         path: "/admin",
