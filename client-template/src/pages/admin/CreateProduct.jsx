@@ -3,9 +3,14 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+const Div = styled.div `
+  max-width: 600px;
+  margin: 0 auto;
+`;
+
 const Back = styled(Link) `
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #333;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #333;
 `;
 
 const Title = styled.h1`
@@ -13,65 +18,31 @@ const Title = styled.h1`
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
-const Textinput = styled.input `
-  width: 400px;
-  height: 25px;
-  border-radius: 5px;
-`;
+const Form = styled.form`
+  input,
+  textarea,
+  button {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0 10px 0;
+  }
 
-const Textarea = styled.textarea `
-  width: 400px;
-  border-radius: 10px;
-  height: 70px
-`;
-
-const CreateDiv = styled.div `
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  padding: 10px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-`;
-
-const CreateButton = styled.button `
-  width: 407px;
-  border-radius: 5px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  height: 30px;
-  margin: 15px;
-  font-size: 15px;
-`;
-
-const ImgLabel = styled.label `
-  width: 150px;
-  margin: 10px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-`;
+  input,
+  textarea,
+  button,
+  label {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  `;
 
 const BtnDiv = styled.div `
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 5px;
 `;
-
-const ImgDiv = styled.div `
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 5px;
-  margin-left: 50px
-`;
-
-const ImgInput = styled.input `
-  margin-right: 50px;
-  width: 400px;
-  border-radius: 5px;
-  height: 25px;
-`;
-
 
 export const CreateProduct = () => {
     const [title, setTitle] = useState("")
@@ -101,86 +72,84 @@ export const CreateProduct = () => {
         }
     
   return (
-      <div>
+      <Div>
 
         <Title id='create-h1'>Create product</Title>
 
-        <form onSubmit={handlesubmit}>
-
-          <CreateDiv>
+        <Form onSubmit={handlesubmit}>
 
                    {/* TITLE */}
+          <div>
             <label>Title:</label>
-            <Textinput  
+            <input  
               value={title} 
               onChange={e=>setTitle(e.target.value)} 
               type="text" 
               name="title"
               required
-                     />
-          </CreateDiv>
+            />
+          </div>
                     {/* CATEGORY */}
-          <CreateDiv>
+          <div>
               <label>Category:</label>
-              <Textinput  
+              <input  
                 value={category} 
                 onChange={e=>setCategory(e.target.value)}  
                 type="text" 
                 name="category"
                 required
-                      />
-          </CreateDiv>
+              />
+          </div>
                     {/* PRICE */}
-          <CreateDiv>
+          <div>
               <label>Price:</label>
-              <Textinput  
+              <input  
                 value={price} 
                 onChange={e=>setPrice(e.target.value)} 
                 type="number"  
                 name="price"
                 required
-                      />
-          </CreateDiv>
+              />
+          </div>
                      {/* STOCK */}
-          <CreateDiv>
+          <div>
               <label>Stock:</label>
-              <Textinput  
+              <input  
                 value={stock} 
                 onChange={e=>setStock(e.target.value)} 
                 type="number" 
                 name="stock"
                 required
-                      />
-          </CreateDiv>
-                      
+              />
+          </div>           
                     {/* DESCRIPTION */} 
-          <CreateDiv>
+          <div>
               <label>Description:</label>
-              <Textarea 
+              <textarea 
                 value={description} 
                 onChange={e=>setDescription(e.target.value)} 
                 type="text"  
                 name="description"
                 rows="12"
                 required
-                        />
-          </CreateDiv>
+              />
+          </div>
                     {/* IMAGE INPUT */}
-          <ImgDiv>
-              <ImgLabel>URL for image:</ImgLabel>
-              <ImgInput   
+          <div>
+              <label>URL for image:</label>
+              <input   
                 type="url" 
                 className='img-input'
-                      />
-          </ImgDiv>
+                placeholder="https://example.com"
+              />
+          </div>
 
-          
-          <BtnDiv className='create-btns'> 
-              <CreateButton type='submit'>Create</CreateButton>
+          <BtnDiv> 
+              <button type='submit'>Create</button>
               <Back className='link' to="/admin/manage-products">&#8592; Back </Back>
           </BtnDiv>
-        </form>
-    </div>
+        </Form>
+    </Div>
   )
 }
 export default CreateProduct
