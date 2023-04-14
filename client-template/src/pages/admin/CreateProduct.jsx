@@ -16,7 +16,7 @@ const Title = styled.h1`
 const Textinput = styled.input `
   width: 400px;
   height: 25px;
-  border-radius: 10px;
+  border-radius: 5px;
 `;
 
 const Textarea = styled.textarea `
@@ -34,8 +34,8 @@ const CreateDiv = styled.div `
 `;
 
 const CreateButton = styled.button `
-  width: 400px;
-  border-radius: 10px;
+  width: 407px;
+  border-radius: 5px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   height: 30px;
   margin: 15px;
@@ -66,7 +66,10 @@ const ImgDiv = styled.div `
 `;
 
 const ImgInput = styled.input `
-  margin-left: 50px;
+  margin-right: 50px;
+  width: 400px;
+  border-radius: 5px;
+  height: 25px;
 `;
 
 
@@ -98,64 +101,60 @@ export const CreateProduct = () => {
         }
     
   return (
-      <div id='create-container'>
+      <div>
 
         <Title id='create-h1'>Create product</Title>
 
         <form onSubmit={handlesubmit}>
 
-          <CreateDiv className='create-div'>
+          <CreateDiv>
 
                    {/* TITLE */}
             <label>Title:</label>
             <Textinput  
               value={title} 
               onChange={e=>setTitle(e.target.value)} 
-              type="text"
-              className='input' 
+              type="text" 
               name="title"
               required
                      />
           </CreateDiv>
                     {/* CATEGORY */}
-          <CreateDiv className='create-div'>
+          <CreateDiv>
               <label>Category:</label>
               <Textinput  
                 value={category} 
                 onChange={e=>setCategory(e.target.value)}  
-                type="text"
-                className='input'  
+                type="text" 
                 name="category"
                 required
                       />
           </CreateDiv>
                     {/* PRICE */}
-          <CreateDiv className='create-div'>
+          <CreateDiv>
               <label>Price:</label>
               <Textinput  
                 value={price} 
                 onChange={e=>setPrice(e.target.value)} 
-                type="number"
-                className='input'  
+                type="number"  
                 name="price"
                 required
                       />
           </CreateDiv>
                      {/* STOCK */}
-          <CreateDiv className='create-div'>
+          <CreateDiv>
               <label>Stock:</label>
               <Textinput  
                 value={stock} 
                 onChange={e=>setStock(e.target.value)} 
-                type="number"
-                className='input'  
+                type="number" 
                 name="stock"
                 required
                       />
           </CreateDiv>
                       
                     {/* DESCRIPTION */} 
-          <CreateDiv className='create-div'>
+          <CreateDiv>
               <label>Description:</label>
               <Textarea 
                 value={description} 
@@ -167,14 +166,11 @@ export const CreateProduct = () => {
                         />
           </CreateDiv>
                     {/* IMAGE INPUT */}
-          <ImgDiv className='img-div'>
-              <ImgLabel   className='img-label'>Choose image:</ImgLabel>
+          <ImgDiv>
+              <ImgLabel>URL for image:</ImgLabel>
               <ImgInput   
-                type="file" 
+                type="url" 
                 className='img-input'
-                id="avatar"
-                name="avatar" 
-                accept="image/png, image/jpeg"
                       />
           </ImgDiv>
 
