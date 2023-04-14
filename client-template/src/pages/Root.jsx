@@ -13,9 +13,11 @@ const Section = styled.section `
 const SectionInner = styled.div `
   grid-column: inner;
   display: flex:
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-`
+  margin: 0;
+  padding: 6rem 0 6rem 0;
+`;
 
 const Root = () => {
   //This is just a sample data, it will be deleted at the end
