@@ -3,6 +3,16 @@ import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import LocalData from "../LocalData";
+import styled from "styled-components";
+
+const Section = styled.section `
+  display: grid;
+  grid-template-columns: minmax(30px, 1fr) [inner-start] minmax(0, 70rem) [inner-end] minmax(30px, 1fr);
+`;
+
+const SectionInner = styled.div `
+  grid-column: inner;
+`
 
 const Root = () => {
   //This is just a sample data, it will be deleted at the end
@@ -38,9 +48,11 @@ const Root = () => {
     <LocalData.Provider value={{ cartData, setCartData }}>
       <Nav />
 
-      <section>
-        <Outlet />
-      </section>
+      <Section>
+        <SectionInner>
+          <Outlet />
+        </SectionInner>
+      </Section>
 
       <Footer />
     </LocalData.Provider>
