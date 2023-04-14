@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
+import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import LocalData from "../LocalData";
 
@@ -31,6 +32,7 @@ const Root = () => {
       item: 1,
     },
   ];
+
   const [cartData, setCartData] = useState(data);
   return (
     <LocalData.Provider value={{ cartData, setCartData }}>
@@ -39,6 +41,8 @@ const Root = () => {
       <section>
         <Outlet />
       </section>
+
+      <Footer />
     </LocalData.Provider>
   );
 };
