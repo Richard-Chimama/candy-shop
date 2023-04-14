@@ -2,6 +2,8 @@ import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LocalData from "../LocalData";
+import { parseIsolatedEntityName } from "typescript";
+import InputComponent from "../components/InputComponent";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -34,40 +36,31 @@ const Products = () => {
           title: data.title,
           image: data.image,
           price: data.price,
-          item: 1,
+          item: InputValue,
         },
       ]);
     } else {
       setCartData(
         cartData.filter((el) => {
           if (el.id === data._id) {
-            el.item = el.item + 1;
+            el.item += InputValue;
           }
           return el;
         })
       );
     }
   };
-  const handleInputChange = (e, id) => {
+  const handleInputChange = (e) => {
     e.preventDefault();
-    setInputValue(e.target.value)
-    setCartData(
-      cartData.filter((el) => {
-        if (el.id === id) {
-          el.item = InputValue;
-        }
-        return el;
-      })
-    );
-  }
-  const getValue =(id)=>{
-    const value = cartData.find((item)=> item.id === id)
-    console.log(value)
-    if(value == undefined){
-      return 1
+    let num 
+    if(e.target.value !== "NaN"){
+      num = parseInt(e.target.value)
     }else{
-      return value.item
+      num = ""
     }
+
+    setInputValue(num)
+     
   }
 
   return (
@@ -77,11 +70,7 @@ const Products = () => {
           <Image src={product.image} alt="here should be a image" />
           <h2>{product.title}</h2>
           <p>{product.price} SEK</p>
-          <Input
-            type="number"
-            value={InputValue}
-            onChange={(e)=>handleInputChange(e, product._id)}
-          />
+          <InputComponent  Value={setInputValue}/>
           <br />
           <button onClick={() => addToLocalData(product)}>Add to cart</button>
           <p>In Stock</p>
