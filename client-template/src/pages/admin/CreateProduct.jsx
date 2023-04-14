@@ -27,7 +27,7 @@ export const CreateProduct = () => {
               console.log(error)
             }
 
-            navigate('/admin/manage-product')
+            navigate('/admin')
         }
     
   return (
@@ -105,7 +105,7 @@ export const CreateProduct = () => {
           
           <div className='create-btns'> 
               <button id='create-button' type='submit'>Create</button>
-              <Link className='link' to="/admin/manage-products">&#8592; Back </Link>
+              <Link className='link' to="/admin">&#8592; Back </Link>
           </div>
         </form>
     </div>

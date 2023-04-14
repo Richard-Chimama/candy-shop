@@ -141,7 +141,7 @@ const UpdateProduct = () => {
           </label>
 
           <button>Update</button>
-          <BackLink to="/admin/manage-product">&#8592; Back</BackLink>
+          <BackLink to="/admin">&#8592; Back</BackLink>
 
 
       </Form>

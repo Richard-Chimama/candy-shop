@@ -21,11 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin",
-        element: <Create />,
+        element: <Manage />,
       },
       {
-        path: "/admin/manage-product",
-        element: <Manage />,
+        path: "/admin/create-product",
+        element: <Create />,
       },
       {
         path: "/admin/update-product/:id",

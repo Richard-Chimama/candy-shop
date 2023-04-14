@@ -56,7 +56,7 @@ const ManageProducts = () => {
     <>
       <Header>
         <Title>ManageProducts</Title>
-        <NavLink to={"/admin"}>Create new product</NavLink>
+        <NavLink to={"/admin/create-product"}>Create new product</NavLink>
       </Header>
       <Table>
         <thead>
