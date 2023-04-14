@@ -1,8 +1,23 @@
 import React, { useState } from "react";
-import Nav from "../components/Nav";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import LocalData from "../LocalData";
+import styled from "styled-components";
+
+const Section = styled.section `
+  display: grid;
+  grid-template-columns: minmax(30px, 1fr) [inner-start] minmax(0, 70rem) [inner-end] minmax(30px, 1fr);
+`;
+
+const SectionInner = styled.div `
+  grid-column: inner;
+  display: flex:
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 6rem 0 6rem 0;
+`;
 
 const Root = () => {
   //This is just a sample data, it will be deleted at the end
@@ -36,11 +51,13 @@ const Root = () => {
   const [cartData, setCartData] = useState(data);
   return (
     <LocalData.Provider value={{ cartData, setCartData }}>
-      <Nav />
+      <Header />
 
-      <section>
-        <Outlet />
-      </section>
+      <Section>
+        <SectionInner>
+          <Outlet />
+        </SectionInner>
+      </Section>
 
       <Footer />
     </LocalData.Provider>
