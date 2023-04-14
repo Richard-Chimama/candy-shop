@@ -12,11 +12,11 @@ const Cart = ({ data, resetData, closeCart }) => {
     let sum = 0
     if(data.length >= 1){
       for(let el of data){
-        sum += parseInt(el.price)
+        sum += el.item * parseInt(el.price)
       }
     }
     setTotal(sum)
-  }, [data.length])
+  }, [data])
 
   const handleRemove = (id)=>{
     resetData(data.filter((item)=> item.id !== id))
@@ -32,7 +32,7 @@ const Cart = ({ data, resetData, closeCart }) => {
           <Content key={item.id}>
             <Image src={item.image} alt={item.title} />
             <Title>{item.title}</Title>
-            <Price>{item.price} kr</Price>
+            <Price>{item.item * item.price} kr</Price>
             <button onClick={()=>handleRemove(item.id)}><FiTrash2 size={15}/></button>
           </Content>
         ))
