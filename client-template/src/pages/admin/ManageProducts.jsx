@@ -100,7 +100,7 @@ const NavLink = styled(Link)`
 
 const Table = styled.table`
   border-collapse: collapse;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 
   & tr:nth-child(even) {
@@ -138,8 +138,8 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  width: 70%;
-  margin: 2rem auto 1rem auto;
+  width: 100%;
+  // margin: 2rem auto 1rem auto;
 `;
 
 export default ManageProducts;
