@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LocalData from "../LocalData";
+import InputComponent from "../components/InputComponent";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -34,41 +35,24 @@ const Products = () => {
           title: data.title,
           image: data.image,
           price: data.price,
-          item: 1,
+          item: InputValue,
         },
       ]);
     } else {
       setCartData(
         cartData.filter((el) => {
           if (el.id === data._id) {
-            el.item = el.item + 1;
+            el.item += InputValue;
           }
           return el;
         })
       );
     }
   };
-  const handleInputChange = (e, id) => {
-    e.preventDefault();
-    setInputValue(e.target.value)
-    setCartData(
-      cartData.filter((el) => {
-        if (el.id === id) {
-          el.item = InputValue;
-        }
-        return el;
-      })
-    );
-  }
-  const getValue =(id)=>{
-    const value = cartData.find((item)=> item.id === id)
-    console.log(value)
-    if(value == undefined){
-      return 1
-    }else{
-      return value.item
-    }
-  }
+
+  const handleInputComponent = (data) => {
+    setInputValue(data);
+  };
 
   return (
     <Container>
@@ -77,11 +61,7 @@ const Products = () => {
           <Image src={product.image} alt="here should be a image" />
           <h2>{product.title}</h2>
           <p>{product.price} SEK</p>
-          <Input
-            type="number"
-            value={InputValue}
-            onChange={(e)=>handleInputChange(e, product._id)}
-          />
+          <InputComponent onDataReceived={handleInputComponent} />
           <br />
           <button onClick={() => addToLocalData(product)}>Add to cart</button>
           <p>In Stock</p>
@@ -105,14 +85,6 @@ const Container = styled.div`
 const Image = styled.img`
   width: 100px;
   height: 100px;
-`;
-
-const Input = styled.input`
-  width: 50px;
-  height: 30px;
-  border: 1px solid black;
-  text-align: center;
-  font-family: 600;
 `;
 
 const Content = styled.div`
