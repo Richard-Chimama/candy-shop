@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LocalData from "../LocalData";
-import { parseIsolatedEntityName } from "typescript";
 import InputComponent from "../components/InputComponent";
 
 const Products = () => {
@@ -50,18 +49,10 @@ const Products = () => {
       );
     }
   };
-  const handleInputChange = (e) => {
-    e.preventDefault();
-    let num 
-    if(e.target.value !== "NaN"){
-      num = parseInt(e.target.value)
-    }else{
-      num = ""
-    }
 
-    setInputValue(num)
-     
-  }
+  const handleInputComponent = (data) => {
+    setInputValue(data);
+  };
 
   return (
     <Container>
@@ -70,7 +61,7 @@ const Products = () => {
           <Image src={product.image} alt="here should be a image" />
           <h2>{product.title}</h2>
           <p>{product.price} SEK</p>
-          <InputComponent  Value={setInputValue}/>
+          <InputComponent onDataReceived={handleInputComponent} />
           <br />
           <button onClick={() => addToLocalData(product)}>Add to cart</button>
           <p>In Stock</p>
@@ -95,14 +86,6 @@ const Container = styled.div`
 const Image = styled.img`
   width: 100px;
   height: 100px;
-`;
-
-const Input = styled.input`
-  width: 50px;
-  height: 30px;
-  border: 1px solid black;
-  text-align: center;
-  font-family: 600;
 `;
 
 const Content = styled.div`
