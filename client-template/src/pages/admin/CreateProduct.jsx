@@ -9,13 +9,14 @@ export const CreateProduct = () => {
     const [price, setPrice] = useState("")
     const [stock, setStock] = useState("")
     const [description, setDescription] = useState("")
+    const [image, setImage] = useState("")
 
     const navigate = useNavigate();
 
         const handlesubmit = (e) => {
             e.preventDefault();
 
-            let objects = {title, category, price, stock, description}
+            let objects = {title, category, price, stock, description, image}
 
             try {
               fetch("https://product-api-production-3a61.up.railway.app/products",{
@@ -92,13 +93,14 @@ export const CreateProduct = () => {
                         />
           </div>
 
-          <div className='img-div'>
-              <label  className='img-label'>Choose image:</label>
-              <input  type="file" 
-                      className='img-input'
+          <div className='create-div'>
+              <label  className='img-label'>Image link:</label>
+              <input  type="text" 
+                      className='input'
                       id="avatar"
                       name="avatar" 
-                      accept="image/png, image/jpeg"
+                      value={image}
+                      onChange={e=>setImage(e.target.value)}
                       />
           </div>
 
