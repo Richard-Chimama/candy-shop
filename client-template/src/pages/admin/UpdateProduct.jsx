@@ -19,9 +19,9 @@ const Form = styled.form `
   button {
     box-sizing: border-box;
     width: 100%;
-    padding: 0.625rem;
-    margin: 0.3125rem 0 0.625rem 0;
-    border-radius: 0.625rem;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0 10px 0;
   }
 
   label,
@@ -108,7 +108,7 @@ const UpdateProduct = () => {
 
           {/* Title */}
           <label>
-            Title
+            Title:
 
             <input
               value={update.title || ''}
@@ -120,7 +120,7 @@ const UpdateProduct = () => {
 
           {/* Title */}
           <label>
-            Category
+            Category:
 
             <input
               value={update.category || ''}
@@ -132,7 +132,7 @@ const UpdateProduct = () => {
 
           {/* Price */}
           <label>
-            Price
+            Price:
 
             <input
               value={update.price || ''}
@@ -146,7 +146,7 @@ const UpdateProduct = () => {
 
           {/* Stock */}
           <label>
-            Stock
+            Stock:
 
             <input
               value={update.stock || ''}
@@ -161,7 +161,7 @@ const UpdateProduct = () => {
 
           {/* Description */}
           <label>
-            Description
+            Description:
 
             <textarea
               value={update.description}
@@ -174,7 +174,7 @@ const UpdateProduct = () => {
 
           {/* Image URL */}
           <label>
-            Image
+            Image:
 
             <input
               value={update.image || ''}
