@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 const Div = styled.div `
   max-width: 600px;
@@ -145,7 +146,7 @@ export const CreateProduct = () => {
           </div>
 
           <BtnDiv> 
-              <button type='submit'>Create</button>
+              <motion.button whileHover={{ scale: 1.01, background: 'skyblue' }} type='submit'>Create</motion.button>
               <Back className='link' to="/admin/manage-products">&#8592; Back </Back>
           </BtnDiv>
         </Form>
