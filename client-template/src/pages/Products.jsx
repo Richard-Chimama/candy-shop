@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import LocalData from "../LocalData";
 import InputComponent from "../components/InputComponent";
 import ShowRoute from "../components/ShowRoute";
+import {motion} from "framer-motion"
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -62,7 +63,7 @@ const Products = () => {
       />
       <Container>
         {products.map((product) => (
-          <Content key={product._id}>
+          <Content as={motion.div} whileHover={{ scale: 1.01 }} key={product._id}>
             <Image src={product.image} alt="here should be a image" />
             <p>{product.title}</p>
             <p>{product.price} SEK</p>
@@ -93,7 +94,7 @@ const Image = styled.img`
   height: 100px;
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
