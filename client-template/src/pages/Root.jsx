@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { Outlet } from "react-router-dom";
 import LocalData from "../LocalData";
 import styled from "styled-components";
+import Colors from "../Theme";
 
 const Section = styled.section `
   display: grid;
@@ -16,14 +17,19 @@ const SectionInner = styled.div `
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 6rem 0 6rem 0;
+  padding: 0.5rem;
 `;
+
+const Container = styled.div`
+  scrollbar-color: ${Colors.color2}
+`
 
 const Root = () => {
   const data = [];
   const [cartData, setCartData] = useState(data);
   return (
-    <LocalData.Provider value={{ cartData, setCartData }}>
+    <Container >
+    <LocalData.Provider  value={{ cartData, setCartData }}>
       <Header />
 
       <Section>
@@ -34,6 +40,7 @@ const Root = () => {
 
       <Footer />
     </LocalData.Provider>
+    </Container>
   );
 };
 

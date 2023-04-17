@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link, } from 'react-router-dom'
 import styled from 'styled-components'
+import ShowRoute from '../../components/ShowRoute';
 
 const Div = styled.div `
   max-width: 800px;
@@ -76,6 +77,8 @@ const UpdateProduct = () => {
   }
 
   return (
+    <>
+    <ShowRoute route={"/products/admin/update-product"} navigateTO={"/admin"} />
     <Div>
 
       <h1>Update product</h1>
@@ -148,6 +151,7 @@ const UpdateProduct = () => {
     }
 
   </Div>
+    </>
   )
   
 }
