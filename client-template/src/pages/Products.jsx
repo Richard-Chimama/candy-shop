@@ -127,25 +127,25 @@ const Content = styled.div`
 
 
 const Buton = styled.button`
-  box-shadow: 0px 0px 7px 0px #3dc21b;
-	background-color:#4cdb72;
+box-shadow: 0px 0px 10px 0px #eb0ece;
+	background-color:#f794e5;
 	border-radius:28px;
 	border:1px solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
-	color:#000000;
+	color:#ffffff;
 	font-family:Arial;
 	font-size:17px;
 	padding:16px 31px;
 	text-decoration:none;
 
 &:hover {
-   background-color:#23fa4b;
+  background-color:#de74cb;
 }
 
 &:active {
-   position:relative;
-	 top:1px;
+  position:relative;
+	top:1px;
 `;
 
 export default Products;

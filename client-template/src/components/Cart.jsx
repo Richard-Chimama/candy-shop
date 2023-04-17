@@ -32,6 +32,7 @@ const Cart = ({ data, resetData, closeCart }) => {
           <Content key={item.id}>
             <Image src={item.image} alt={item.title} />
             <Title>{item.title}</Title>
+            {item.item} x {item.price}  kr
             <Price>{item.item * item.price} kr</Price>
             <button onClick={()=>handleRemove(item.id)}><FiTrash2 size={15}/></button>
           </Content>

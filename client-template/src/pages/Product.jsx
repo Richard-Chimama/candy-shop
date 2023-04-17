@@ -32,14 +32,14 @@ const Product = () => {
           title: data.title,
           image: data.image,
           price: data.price,
-          item: 1,
+          item: InputValue,
         },
       ]);
     } else {
       setCartData(
         cartData.filter((el) => {
           if (el.id === data._id) {
-            el.item = el.item + 1;
+            el.item += InputValue;
           }
           return el;
         })
@@ -86,8 +86,7 @@ const Product = () => {
 
 
   return (
-    <div>
-      <Title>Product information:</Title> 
+    <div> 
     <Div>
           <Bild src={product.image}   alt="here should be a image" />
 
@@ -102,14 +101,6 @@ const Product = () => {
 
               <InputComponent onDataReceived={handleInputComponent} />
           <br />
-          
-{/*               <input
-                type="number"
-                value={InputValue}
-                onChange={(e)=>handleInputComponent(e, product._id)}
-            /> */}
-
-
               <br />
               <br />
 
@@ -126,22 +117,21 @@ const Product = () => {
 
           </content>
      
-    </Kontent>
-</Div>
+      </Kontent>
+
+
+    </Div>
 
     </div>
   );
 };
 
 
-const Title = styled.h1`
-color:blue
 
-`;
 
 const Bild = styled.img`
-  width: 30%;
-  height: 30%;
+  width: 40%;
+  height: 40%;
 `;
 
 const Kontent = styled.div`
@@ -158,27 +148,26 @@ justify-content: space-evenly;`;
 
 
 const Buton = styled.button`
-  box-shadow: 0px 0px 7px 0px #3dc21b;
-	background-color:#4cdb72;
+box-shadow: 0px 0px 10px 0px #eb0ece;
+	background-color:#f794e5;
 	border-radius:28px;
 	border:1px solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
-	color:#000000;
+	color:#ffffff;
 	font-family:Arial;
 	font-size:17px;
 	padding:16px 31px;
 	text-decoration:none;
 
 &:hover {
-   background-color:#23fa4b;
+  background-color:#de74cb;
 }
 
 &:active {
-   position:relative;
-	 top:1px;
+  position:relative;
+	top:1px;
 `;
-
 
 
 export default Product;
