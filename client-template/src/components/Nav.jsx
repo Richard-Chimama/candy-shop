@@ -4,8 +4,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import styled from "styled-components";
 import LocalData from "../LocalData";
 import CartPanel from "./Cart";
-import Colors from "../Theme"
-import ronsLogo from "../assets/rons-logo.jpeg"
+import Colors from "../Theme";
+import ronsLogo from "../assets/rons-logo.jpeg";
 
 const Nav = () => {
   const { cartData, setCartData } = useContext(LocalData);
@@ -27,29 +27,30 @@ const Nav = () => {
   }, [promptRef]);
 
   return (
-    <Container ref={promptRef}>
+    <Container>
       <Logo src={ronsLogo} alt={"rons logo"} />
       <div>
         <NavLink to="/">Products</NavLink>
         <NavLink to="/admin">Admin</NavLink>
-      
       </div>
 
-      <Cart
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-      >
-        <FaShoppingCart color="#FFFFF" size={25} />
-        <span>({cartData.length})</span>
-      </Cart>
-      {isOpen && (
-        <CartPanel
-          data={cartData}
-          resetData={setCartData}
-          closeCart={setIsOpen}
-        />
-      )}
+      <div ref={promptRef}>
+        <Cart
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
+        >
+          <FaShoppingCart color="#FFFFF" size={25} />
+          <span>({cartData.length})</span>
+        </Cart>
+        {isOpen && (
+          <CartPanel
+            data={cartData}
+            resetData={setCartData}
+            closeCart={setIsOpen}
+          />
+        )}
+      </div>
     </Container>
   );
 };
@@ -61,8 +62,8 @@ const NavLink = styled(Link)`
   color: #333;
   padding-right: 1rem;
   color: ${Colors.color1};
-  
-  &:hover{
+
+  &:hover {
     color: ${Colors.color2};
   }
 `;
@@ -78,14 +79,14 @@ const Logo = styled.img`
   width: 70px;
   height: 70px;
   border-radius: 50%;
-`
+`;
 
 const Container = styled.nav`
   height: 96px;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
 `;
 

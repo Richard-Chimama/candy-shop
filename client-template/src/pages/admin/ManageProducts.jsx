@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import Colors from "../../Theme";
+import ShowRoute from "../../components/ShowRoute";
 
 const URL = "https://product-api-production-3a61.up.railway.app/products";
 
@@ -53,8 +54,12 @@ const ManageProducts = () => {
     return <CenterMessage>{isError}</CenterMessage>;
   }
 
+  
+  
+
   return (
     <>
+      <ShowRoute route={"/products/admin"} navigateTO={"/"} />
       <Header>
         <Title>Manage Products</Title>
         <NavLink to={"/admin/create-product"}>Create new product</NavLink>
@@ -142,7 +147,7 @@ const Header = styled.div`
   justify-content: space-between;
   align-content: center;
   width: 100%;
-  margin: 2rem auto 1rem auto;
+  margin: 0.5rem auto 1rem auto;
 `;
 
 export default ManageProducts;

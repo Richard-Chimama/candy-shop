@@ -17,7 +17,7 @@ const SectionInner = styled.div `
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding: 6rem 0 6rem 0;
+  padding: 0.5rem;
 `;
 
 const Container = styled.div`

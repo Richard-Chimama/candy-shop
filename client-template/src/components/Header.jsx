@@ -2,6 +2,7 @@ import React from 'react'
 import Nav from './Nav'
 import styled from 'styled-components';
 import Colors from '../Theme';
+import ShowRoute from './ShowRoute';
 
 const Container = styled.header `
   display: grid;
@@ -17,11 +18,13 @@ const ContainerInner = styled.div `
 
 const Header = () => {
   return (
-    <Container>
-      <ContainerInner>
-        <Nav />
-      </ContainerInner>
-    </Container>
+    <>
+      <Container>
+        <ContainerInner>
+          <Nav />
+        </ContainerInner>
+      </Container>
+    </>
 
   )
 }
