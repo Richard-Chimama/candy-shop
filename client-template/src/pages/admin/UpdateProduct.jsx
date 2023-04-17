@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link, } from 'react-router-dom'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
 const Div = styled.div `
   max-width: 600px;
@@ -45,7 +46,6 @@ const BackLink = styled(Link) `
   color: #333;
   text-decoration: none;
 `;
-
 
 const UpdateProduct = () => {
   const [update, setUpdate] = useState({})
@@ -185,7 +185,9 @@ const UpdateProduct = () => {
           </label>
 
           <BtnsContainer>
-            <button>Update</button>
+            <motion.button whileHover={{ scale: 1.01, backgroundColor:'skyblue'}}>
+              Update
+            </motion.button>
             <BackLink to="/admin/manage-product">&#8592; Back</BackLink>
           </BtnsContainer>
 
