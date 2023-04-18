@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from "styled-components"
+import Colors from '../Theme'
 
 const InputComponent = (props) => {
     const [InputValue, setInputValue] = useState(1)
@@ -18,11 +19,13 @@ const InputComponent = (props) => {
 }
 
 const Input = styled.input`
-  width: 50px;
-  height: 30px;
-  border: 1px solid black;
+  width: 100px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid ${Colors.color3};
   text-align: center;
   font-family: 600;
+  outline: none;
 `;
 
 export default InputComponent

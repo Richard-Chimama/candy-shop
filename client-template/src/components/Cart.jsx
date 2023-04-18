@@ -42,7 +42,7 @@ const Cart = ({ data, resetData, closeCart }) => {
       <hr />
       <p>Total price: {total} kr</p>
       <CartAction>
-        <Buton2 onClick={() => resetData([])}>Reset Cart</Buton2>
+        <Buton onClick={() => resetData([])}>Reset Cart</Buton>
         <Buton2
           onClick={() => {
             navigate("/checkout");
@@ -99,11 +99,27 @@ const Image = styled.img`
   width: 70px;
   height: 70px;
 `;
+const Buton = styled.button`
+	background-color: ${Colors.black};
+	border-radius:28px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 14px;
+	text-decoration:none;
+
+&:active {
+  position:relative;
+	top:1px;
+`;
 
 
 const Buton2 = styled.button`
 //box-shadow: 0px 0px 10px 0px #eb0ece;
-	background-color: ${Colors.black};
+	background-color: ${Colors.color7};
 	border-radius:28px;
 	border:1px solid #ffffff;
 	display:inline-block;

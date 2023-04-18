@@ -87,17 +87,18 @@ const Products = () => {
       <Container>
         {products.map((product) => (
           <Content key={product._id}>
-            <Image src={product.image} alt="here should be a image" />
-            <p>{product.title}</p>
-            <p>{product.price} SEK</p>
-            <InputComponent onDataReceived={handleInputComponent} />
-            <br />
-            <Buton onClick={() => addToLocalData(product)}>Add to cart</Buton>
-            <p>In Stock</p>
-
-            <Link to={"/product/" + product._id}>
+            <Image src={product.image} alt={product.title} />
+            <Details>
+              <div>{product.title}</div>
+              <div><b>{product.price} SEK</b></div>
+            </Details>
+            <InputDetails>
+              <InputComponent onDataReceived={handleInputComponent} />
+              <Buton onClick={() => addToLocalData(product)}>Add to cart</Buton>
+            </InputDetails>
+            <ReadMore to={"/product/" + product._id}>
               <i>Read more...</i>
-            </Link>
+            </ReadMore>
           </Content>
         ))}
       </Container>
@@ -105,7 +106,26 @@ const Products = () => {
   );
 };
 
-
+const Details = styled.div`
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  margin-bottom: 0.7rem;
+  margin-top: 0.7rem;
+`
+const InputDetails = styled.div`
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.7rem;
+`
+const ReadMore = styled(Link)`
+  margin-bottom: 1rem;
+`
 
 const Container = styled.div`
   display: flex;
@@ -115,8 +135,9 @@ const Container = styled.div`
 `;
 
 const Image = styled.img`
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
 `;
 
 const Content = styled.div`
@@ -124,32 +145,31 @@ const Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
+  border: 1px solid ${Colors.color7};
+  border-radius: 8px;
   width: Calc(100%/3 - 1rem);
   height: 400px;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
   margin-top: 1rem;
-  padding: 0.5rem;
 `;
 
 
 
 const Buton = styled.button`
-  box-shadow: 0px 0px 10px 0px #eb0ece;
-	background-color:${Colors.color6};
-	border-radius:28px;
+	border-radius:8px;
 	border:1px solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	padding:16px 31px;
+	color:${Colors.black};
+	font-family: Poppins;
+	font-size:14px;
+	padding:12px;
 	text-decoration:none;
 
 &:hover {
-  background-color:#de74cb;
+  background-color: ${Colors.color1};
+  color:${Colors.white};
 }
 
 &:active {
