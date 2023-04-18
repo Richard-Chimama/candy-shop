@@ -1,8 +1,50 @@
-import React from "react";
-import "../../Create.css";
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
-import ShowRoute from "../../components/ShowRoute";
+import React from 'react'
+import { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
+
+const Div = styled.div `
+  max-width: 600px;
+  margin: 0 auto;
+`;
+
+const Back = styled(Link) `
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #333;
+`;
+
+const Title = styled.h1`
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`;
+
+const Form = styled.form`
+  input,
+  textarea,
+  button {
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0 10px 0;
+  }
+
+  input,
+  textarea,
+  button,
+  label {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  `;
+
+const BtnDiv = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 
 export const CreateProduct = () => {
   const [title, setTitle] = useState("");
@@ -31,100 +73,88 @@ export const CreateProduct = () => {
 
     navigate("/admin");
   };
-
+ 
+    
   return (
-    <>
-      <ShowRoute
-        route={"/products/admin/create-product"}
-        navigateTO={"/admin"}
-      />
-      <div id="create-container">
-        <h1 id="create-h1">Create product</h1>
+      <Div>
 
-        <form onSubmit={handlesubmit}>
-          <div className="create-div">
+        <Title id='create-h1'>Create product</Title>
+
+        <Form onSubmit={handlesubmit}>
+
+                   {/* TITLE */}
+          <div>
             <label>Title:</label>
-            <input
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              type="text"
-              className="input"
+            <input  
+              value={title} 
+              onChange={e=>setTitle(e.target.value)} 
+              type="text" 
               name="title"
               required
             />
           </div>
 
-          <div className="create-div">
-            <label>Category:</label>
-            <input
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              type="text"
-              className="input"
-              name="category"
-              required
-            />
+                    {/* CATEGORY */}
+          <div>
+              <label>Category:</label>
+              <input  
+                value={category} 
+                onChange={e=>setCategory(e.target.value)}  
+                type="text" 
+                name="category"
+                required
+              />
+          </div>
+                    {/* PRICE */}
+          <div>
+              <label>Price:</label>
+              <input  
+                value={price} 
+                onChange={e=>setPrice(e.target.value)} 
+                type="number"  
+                name="price"
+                required
+              />
+          </div>
+                     {/* STOCK */}
+          <div>
+              <label>Stock:</label>
+              <input  
+                value={stock} 
+                onChange={e=>setStock(e.target.value)} 
+                type="number" 
+                name="stock"
+                required
+              />
+          </div>           
+                    {/* DESCRIPTION */} 
+          <div>
+              <label>Description:</label>
+              <textarea 
+                value={description} 
+                onChange={e=>setDescription(e.target.value)} 
+                type="text"  
+                name="description"
+                rows="12"
+                required
+              />
+          </div>
+                    {/* IMAGE INPUT */}
+          <div>
+              <label>URL for image:</label>
+              <input   
+                type="url" 
+                className='img-input'
+                placeholder="https://example.com"
+              />
           </div>
 
-          <div className="create-div">
-            <label>Price:</label>
-            <input
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              type="number"
-              className="input"
-              name="price"
-              required
-            />
-          </div>
-
-          <div className="create-div">
-            <label>Stock:</label>
-            <input
-              value={stock}
-              onChange={(e) => setStock(e.target.value)}
-              type="number"
-              className="input"
-              name="stock"
-              required
-            />
-          </div>
-
-          <div className="create-div">
-            <label>Description:</label>
-            <textarea
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              type="text"
-              name="description"
-              rows="12"
-              required
-            />
-          </div>
-
-          <div className="create-div">
-            <label className="img-label">Image link:</label>
-            <input
-              type="text"
-              className="input"
-              id="avatar"
-              name="avatar"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-            />
-          </div>
-
-          <div className="create-btns">
-            <button id="create-button" type="submit">
-              Create
-            </button>
-            <Link className="link" to="/admin">
-              &#8592; Back{" "}
-            </Link>
-          </div>
-        </form>
-      </div>
-    </>
-  );
-};
-export default CreateProduct;
+          <BtnDiv> 
+              <motion.button whileHover={{ scale: 1.01, background: 'skyblue' }} type='submit'>Create</motion.button>
+              <Back className='link' to="/admin/manage-products">&#8592; Back </Back>
+          </BtnDiv>
+        </Form>
+    </Div>
+  )
+}
+export default CreateProduct
