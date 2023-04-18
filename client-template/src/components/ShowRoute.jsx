@@ -21,7 +21,6 @@ const ShowRoute = ({ route, navigateTO }) => {
 
 const Container = styled.div`
   height: 40px;
-  border: 1px solid ${Colors.black};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,8 +29,7 @@ const Container = styled.div`
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 8px;
-  font-weight: 600;
-  font-family: Roboto;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
 const Button = styled.button`
@@ -42,8 +40,7 @@ const Button = styled.button`
   justify-content: center;
   align-items: center;
   color: ${Colors.white};
-  font-family: Roboto;
-  font-weight: 600;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
 export default ShowRoute;
