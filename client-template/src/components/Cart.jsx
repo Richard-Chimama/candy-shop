@@ -12,11 +12,11 @@ const Cart = ({ data, resetData, closeCart }) => {
     let sum = 0
     if(data.length >= 1){
       for(let el of data){
-        sum += parseInt(el.price)
+        sum += el.item * parseInt(el.price)
       }
     }
     setTotal(sum)
-  }, [data.length])
+  }, [data])
 
   const handleRemove = (id)=>{
     resetData(data.filter((item)=> item.id !== id))
@@ -32,7 +32,8 @@ const Cart = ({ data, resetData, closeCart }) => {
           <Content key={item.id}>
             <Image src={item.image} alt={item.title} />
             <Title>{item.title}</Title>
-            <Price>{item.price} kr</Price>
+            {item.item} x {item.price}  kr
+            <Price>{item.item * item.price} kr</Price>
             <button onClick={()=>handleRemove(item.id)}><FiTrash2 size={15}/></button>
           </Content>
         ))
@@ -60,7 +61,8 @@ const Container = styled.div`
   right: 6rem;
   border: 1px solid #000;
   padding-bottom: 1rem;
-  width: 300px;
+  background-color: white;
+  width: 380px;
   font-family: Roboto;
   font-size: 14px;
   z-index: 9999;

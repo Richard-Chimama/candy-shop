@@ -1,0 +1,9 @@
+* {
+  box-sizing: border-box;
+  scrollbar-color: "#e297ac";
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
