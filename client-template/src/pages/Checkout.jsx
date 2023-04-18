@@ -2,11 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 import LocalData from "../LocalData/";
 import { FiTrash2 } from "react-icons/fi";
 import styled from "styled-components";
-<<<<<<<<< Temporary merge branch 1
 import ShowRoute from "../components/ShowRoute";
-=========
 import { motion } from 'framer-motion'
->>>>>>>>> Temporary merge branch 2
 
 const Checkout = () => {
   const { cartData, setCartData } = useContext(LocalData);
@@ -49,13 +46,10 @@ const Checkout = () => {
 
   return (
     <>
-<<<<<<<<< Temporary merge branch 1
     <ShowRoute
         route={"/products/"}
         navigateTO={"/"}
       />
-=========
->>>>>>>>> Temporary merge branch 2
     <Container>
       <Content>
       {
@@ -102,8 +96,6 @@ const Checkout = () => {
       }
       </Content>
     </Container>
-<<<<<<<<< Temporary merge branch 1
-=========
     <Div>
       <P>
         Shipping adress
@@ -187,7 +179,6 @@ const Checkout = () => {
             </ContainerInner>
         </ContainerDiv>
 
->>>>>>>>> Temporary merge branch 2
     </>
   );
 };
@@ -253,7 +244,6 @@ const Message = styled.div`
 
 `;
 
->>>>>>> checkout-page
 const Content = styled.div`
   margin-top: 2rem;
   width: 100%;
