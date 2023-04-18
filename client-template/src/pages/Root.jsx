@@ -9,6 +9,7 @@ import Colors from "../Theme";
 const Section = styled.section `
   display: grid;
   grid-template-columns: minmax(30px, 1fr) [inner-start] minmax(0, 70rem) [inner-end] minmax(30px, 1fr);
+  padding: 3rem 0 3rem 0;
 `;
 
 const SectionInner = styled.div `
