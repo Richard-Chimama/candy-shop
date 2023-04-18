@@ -2,6 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import LocalData from "../LocalData/";
 import { FiTrash2 } from "react-icons/fi";
 import styled from "styled-components";
+<<<<<<<<< Temporary merge branch 1
+import ShowRoute from "../components/ShowRoute";
+=========
+import { motion } from 'framer-motion'
+>>>>>>>>> Temporary merge branch 2
 
 const Checkout = () => {
   const { cartData, setCartData } = useContext(LocalData);
@@ -43,6 +48,14 @@ const Checkout = () => {
   };
 
   return (
+    <>
+<<<<<<<<< Temporary merge branch 1
+    <ShowRoute
+        route={"/products/"}
+        navigateTO={"/"}
+      />
+=========
+>>>>>>>>> Temporary merge branch 2
     <Container>
       <Content>
       {
@@ -89,13 +102,158 @@ const Checkout = () => {
       }
       </Content>
     </Container>
+<<<<<<<<< Temporary merge branch 1
+=========
+    <Div>
+      <P>
+        Shipping adress
+      </P>
+    </Div>
+        <ContainerDiv>
+            <ContainerInner>
+              <form action="">
+
+                  <FormBox1>
+                    <InputContainer>
+                      <div>
+                        <Label htmlFor=""> Firstname</Label>
+                          <Input type="text" name="" id="" />
+                      </div>
+                    </InputContainer>
+
+                    <InputContainer>
+                      <div>
+                        <Label htmlFor=""> Lastname </Label>
+                          <Input type="text" name="" id="" />
+                      </div>
+                    </InputContainer>
+                  </FormBox1>
+
+                    <div>
+                      <Label htmlFor="">Street adress</Label>
+                        <Input type="text" name="" id="" />
+                    </div>
+
+                    <FormBox1>
+                      <InputContainer>
+                        <div>
+                          <Label htmlFor="">City</Label>
+                            <Input type="text" name="" id="" />
+                        </div>
+                      </InputContainer>
+
+                      <InputContainer>
+                        <div>
+                          <Label htmlFor="">Zip code</Label>
+                            <Input type="number" name="" id="" />
+                        </div>
+                      </InputContainer>
+                    </FormBox1>
+
+                 
+                    <div>
+                      <div>
+                          <Select id="country" name="country">
+                            <option>Select country</option>
+                            <option value="CA">Canada</option>
+                            <option value="DK">Denmark</option>
+                            <option value="FI">Finland</option>
+                            <option value="IS">Iceland</option>
+                            <option value="NO">Norway</option>
+                            <option value="SE">Sweden</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="US">United States</option>
+                          </Select>
+
+                      </div>
+                    </div>
+
+                    <div>
+                      <div>
+                          <Label htmlFor="">Phonenumber</Label>
+                            <Input type="number" name="" id="" />
+                      </div>
+                    </div>
+
+                      <div>
+                        <Label htmlFor="">Email</Label>
+                          <Input type="email" name="" id="" placeholder="example@gmail.com" />
+                      </div>
+
+                      <div>
+                        <Button as={motion.button} whileHover={{scale: 1.01, backgroundColor: 'lightpink'}}>Order</Button>
+                      </div>
+              </form>
+            </ContainerInner>
+        </ContainerDiv>
+
+>>>>>>>>> Temporary merge branch 2
+    </>
   );
 };
 
-const Message = styled.div`
-  height: 500px
+const Button = styled(motion.button)`
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px
 `;
 
+const ContainerInner = styled.div`
+  margin: 0 auto;
+  max-width: 550px;
+  width: 100%
+`;
+
+const InputContainer = styled.div`
+  width: 100%;
+  `;
+
+const FormBox1 = styled.div`
+  display: flex;
+  gap: 10px
+`;
+
+const Input = styled.input`
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0 10px 0;
+`;
+const Select = styled.select`
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 0 10px 0;
+`;
+
+const Label = styled.label`
+  display: block;
+`;
+
+const ContainerDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+`;
+
+const Div = styled.div`
+  border-bottom: 1px solid black;
+  margin-bottom 10px
+`;
+
+const P = styled.p`
+  font-size: 20px;
+  text-align: left;
+`;
+const Message = styled.div`
+  height: 500px;
+
+`;
+
+>>>>>>> checkout-page
 const Content = styled.div`
   margin-top: 2rem;
   width: 100%;
