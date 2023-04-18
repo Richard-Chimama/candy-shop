@@ -1,13 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link, } from 'react-router-dom'
 import styled from 'styled-components'
+<<<<<<< HEAD
 import ShowRoute from '../../components/ShowRoute';
+=======
+import { motion } from 'framer-motion'
+>>>>>>> origin/update-product-2
 
 const Div = styled.div `
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
-  
 `;
+
+const Title = styled.h1`
+  text-align: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`;
+
 
 const Form = styled.form `
   input,
@@ -15,15 +24,31 @@ const Form = styled.form `
   button {
     box-sizing: border-box;
     width: 100%;
-    padding: 0.5rem;
-    margin: 0.5rem 0 1rem 0;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px 0 10px 0;
+  }
+
+  label,
+  input,
+  textarea,
+  button {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
 `;
 
-const BackLink = styled(Link) `
-  text-decoration: none;
+const BtnsContainer = styled.div `
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
+const BackLink = styled(Link) `
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: #333;
+  text-decoration: none;
 `;
 
 const UpdateProduct = () => {
@@ -59,6 +84,7 @@ const UpdateProduct = () => {
         },
         body: JSON.stringify({
           title: update.title,
+          category: update.category,
           price: update.price,
           stock: update.stock,
           description: update.description,
@@ -81,71 +107,100 @@ const UpdateProduct = () => {
     <ShowRoute route={"/products/admin/update-product"} navigateTO={"/admin"} />
     <Div>
 
-      <h1>Update product</h1>
+      <Title>Update product</Title>
 
       {
         <Form onSubmit={handleSubmit}>
 
-          {/* Image URL */}
+          {/* Title */}
           <label>
-            Image
+            Title:
 
             <input
-              value={update.image || ''}
-              onChange={event => setUpdate ({...update, image: event.target.value})}
-              type='url' 
+              value={update.title || ''}
+              onChange={event => setUpdate ({...update, title: event.target.value})}
+              type='text'
+              required 
             />
           </label>
 
           {/* Title */}
           <label>
-            Title
+            Category:
 
             <input
-              value={update.title || ''}
-              onChange={event => setUpdate ({...update, title: event.target.value})}
-              type='text' 
+              value={update.category || ''}
+              onChange={event => setUpdate ({...update, category: event.target.value})}
+              type='text'
+              required 
             />
           </label>
 
           {/* Price */}
           <label>
-            Price
+            Price:
 
             <input
               value={update.price || ''}
               onChange={event => setUpdate({...update, price: event.target.value})}
-              type='text' 
+              type='number'
+              min="0"
+              max="1000"
+              required
             />
           </label> 
 
           {/* Stock */}
           <label>
-            Stock
+            Stock:
 
             <input
               value={update.stock || ''}
               onChange={event => setUpdate({...update, stock: event.target.value})}
-              type='text' 
+              type='number'
+              min="0"
+              max="1000"
+              required 
             />
 
           </label>
 
           {/* Description */}
           <label>
-            Description
+            Description:
 
             <textarea
               value={update.description}
               onChange={event => setUpdate({...update, description: event.target.value})}
               type='text' 
               rows="12"
+              required
             />
           </label>
 
+<<<<<<< HEAD
           <button>Update</button>
           <BackLink to="/admin">&#8592; Back</BackLink>
+=======
+          {/* Image URL */}
+          <label>
+            Image:
 
+            <input
+              value={update.image || ''}
+              onChange={event => setUpdate ({...update, image: event.target.value})}
+              type='url'
+              required 
+            />
+          </label>
+>>>>>>> origin/update-product-2
+
+          <BtnsContainer>
+            <motion.button whileHover={{ scale: 1.01, backgroundColor:'skyblue'}}>
+              Update
+            </motion.button>
+            <BackLink to="/admin/manage-product">&#8592; Back</BackLink>
+          </BtnsContainer>
 
       </Form>
     }
