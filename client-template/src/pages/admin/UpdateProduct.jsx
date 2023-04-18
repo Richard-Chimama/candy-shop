@@ -89,7 +89,7 @@ const UpdateProduct = () => {
         }),
       })
 
-      navigate("/admin/manage-product")
+      navigate("/admin")
 
       
     } catch (error) {
@@ -191,7 +191,7 @@ const UpdateProduct = () => {
             <motion.button whileHover={{ scale: 1.01, backgroundColor:'skyblue'}}>
               Update
             </motion.button>
-            <BackLink to="/admin/manage-product">&#8592; Back</BackLink>
+            <BackLink to="/admin">&#8592; Back</BackLink>
           </BtnsContainer>
 
       </Form>

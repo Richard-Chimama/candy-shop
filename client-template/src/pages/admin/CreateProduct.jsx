@@ -151,7 +151,7 @@ export const CreateProduct = () => {
 
           <BtnDiv> 
               <motion.button whileHover={{ scale: 1.01, background: 'skyblue' }} type='submit'>Create</motion.button>
-              <Back className='link' to="/admin/manage-products">&#8592; Back </Back>
+              <Back className='link' to="/admin">&#8592; Back </Back>
           </BtnDiv>
         </Form>
     </Div>
