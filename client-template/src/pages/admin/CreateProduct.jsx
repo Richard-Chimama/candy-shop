@@ -3,6 +3,8 @@ import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import Colors from '../../Theme'
+import ShowRoute from '../../components/ShowRoute';
 
 const Div = styled.div `
   max-width: 600px;
@@ -35,6 +37,15 @@ const Form = styled.form`
   button,
   label {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  input,
+  textarea {
+    border: 2px solid ${Colors.color3}
+  }
+
+  button {
+    border:none;
   }
   `;
 
@@ -76,85 +87,89 @@ export const CreateProduct = () => {
  
     
   return (
-      <Div>
+    <>
+        <ShowRoute route={"/products/admin/update-product"} navigateTO={"/admin"} />
+          <Div>
+            
 
-        <Title id='create-h1'>Create product</Title>
+            <Title id='create-h1'>Create product</Title>
 
-        <Form onSubmit={handlesubmit}>
+            <Form onSubmit={handlesubmit}>
 
-                   {/* TITLE */}
-          <div>
-            <label>Title:</label>
-            <input  
-              value={title} 
-              onChange={e=>setTitle(e.target.value)} 
-              type="text" 
-              name="title"
-              required
-            />
-          </div>
+                      {/* TITLE */}
+              <div>
+                <label>Title:</label>
+                <input  
+                  value={title} 
+                  onChange={e=>setTitle(e.target.value)} 
+                  type="text" 
+                  name="title"
+                  required
+                />
+              </div>
 
-                    {/* CATEGORY */}
-          <div>
-              <label>Category:</label>
-              <input  
-                value={category} 
-                onChange={e=>setCategory(e.target.value)}  
-                type="text" 
-                name="category"
-                required
-              />
-          </div>
-                    {/* PRICE */}
-          <div>
-              <label>Price:</label>
-              <input  
-                value={price} 
-                onChange={e=>setPrice(e.target.value)} 
-                type="number"  
-                name="price"
-                required
-              />
-          </div>
-                     {/* STOCK */}
-          <div>
-              <label>Stock:</label>
-              <input  
-                value={stock} 
-                onChange={e=>setStock(e.target.value)} 
-                type="number" 
-                name="stock"
-                required
-              />
-          </div>           
-                    {/* DESCRIPTION */} 
-          <div>
-              <label>Description:</label>
-              <textarea 
-                value={description} 
-                onChange={e=>setDescription(e.target.value)} 
-                type="text"  
-                name="description"
-                rows="12"
-                required
-              />
-          </div>
-                    {/* IMAGE INPUT */}
-          <div>
-              <label>URL for image:</label>
-              <input   
-                type="url" 
-                className='img-input'
-                placeholder="https://example.com"
-              />
-          </div>
+                        {/* CATEGORY */}
+              <div>
+                  <label>Category:</label>
+                  <input  
+                    value={category} 
+                    onChange={e=>setCategory(e.target.value)}  
+                    type="text" 
+                    name="category"
+                    required
+                  />
+              </div>
+                        {/* PRICE */}
+              <div>
+                  <label>Price:</label>
+                  <input  
+                    value={price} 
+                    onChange={e=>setPrice(e.target.value)} 
+                    type="number"  
+                    name="price"
+                    required
+                  />
+              </div>
+                        {/* STOCK */}
+              <div>
+                  <label>Stock:</label>
+                  <input  
+                    value={stock} 
+                    onChange={e=>setStock(e.target.value)} 
+                    type="number" 
+                    name="stock"
+                    required
+                  />
+              </div>           
+                        {/* DESCRIPTION */} 
+              <div>
+                  <label>Description:</label>
+                  <textarea 
+                    value={description} 
+                    onChange={e=>setDescription(e.target.value)} 
+                    type="text"  
+                    name="description"
+                    rows="12"
+                    required
+                  />
+              </div>
+                        {/* IMAGE INPUT */}
+              <div>
+                  <label>URL for image:</label>
+                  <input 
+                    onChange={e=>setImage(e.target.value)}  
+                    type="url" 
+                    className='img-input'
+                    placeholder="https://example.com"
+                  />
+              </div>
 
-          <BtnDiv> 
-              <motion.button whileHover={{ scale: 1.01, background: 'skyblue' }} type='submit'>Create</motion.button>
-              <Back className='link' to="/admin">&#8592; Back </Back>
-          </BtnDiv>
-        </Form>
-    </Div>
+              <BtnDiv> 
+                  <motion.button whileHover={{ scale: 1.01, backgroundColor: Colors.color3, color: Colors.white }} type='submit'>Create</motion.button>
+              </BtnDiv>
+            </Form>
+          </Div>
+    </>
   )
 }
 export default CreateProduct
