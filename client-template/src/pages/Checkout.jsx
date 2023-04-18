@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import LocalData from "../LocalData/";
 import { FiTrash2 } from "react-icons/fi";
 import styled from "styled-components";
-import ShowRoute from "../components/ShowRoute";
 
 const Checkout = () => {
   const { cartData, setCartData } = useContext(LocalData);
@@ -44,11 +43,6 @@ const Checkout = () => {
   };
 
   return (
-    <>
-    <ShowRoute
-        route={"/products/"}
-        navigateTO={"/"}
-      />
     <Container>
       <Content>
       {
@@ -95,14 +89,8 @@ const Checkout = () => {
       }
       </Content>
     </Container>
-    </>
   );
 };
-
-const Message = styled.div`
-  height: 500px;
-
-`
 
 const Content = styled.div`
   margin-top: 2rem;
