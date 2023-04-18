@@ -60,8 +60,8 @@ const ManageProducts = () => {
   return (
     <>
       <ShowRoute route={"/products/admin"} navigateTO={"/"} />
-      <Header>
         <Title>Manage Products</Title>
+      <Header>
         <NavLink to={"/admin/create-product"}>Create new product</NavLink>
       </Header>
       <Table>
@@ -85,8 +85,8 @@ const ManageProducts = () => {
               <TD>{new Date(item.date).toLocaleDateString()}</TD>
               <TD className="actions">
 
-                <Link to={"/admin/update-product/" + item._id}>Update</Link>
-                <Link onClick={() => handleDelete(item._id)}>Delete</Link>
+                <Links to={"/admin/update-product/" + item._id}>Update</Links>
+                <Links onClick={() => handleDelete(item._id)}>Delete</Links>
               </TD>
             </tr>
           ))}
@@ -97,14 +97,21 @@ const ManageProducts = () => {
 };
 
 const Title = styled.p`
-  font-size: 20px;
+  font-size: 25px;
   text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+`;
+
+const Links = styled(Link)`
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
 `;
 
 const NavLink = styled(Link)`
+  text-decoration: none;
   font-size: 16px;
   text-align: center;
-  padding-top: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
 const Table = styled.table`
@@ -131,6 +138,7 @@ const TD = styled.td`
   border: none;
   height: 40px;
   text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 const CenterMessage = styled.div`
   text-align: center;
@@ -139,16 +147,15 @@ const CenterMessage = styled.div`
 `;
 
 const TH = styled(TD)`
-  font-size: 18px;
-  font-weight: 600;
-  text-align: left;
+  text-align: center;
   padding-left: 10px;
   background-color: ${Colors.color1};
   color: ${Colors.white};
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 const Header = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: right;
   align-content: center;
   width: 100%;
   margin: 0.5rem auto 1rem auto;
