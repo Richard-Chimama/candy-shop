@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link, } from 'react-router-dom'
 import styled from 'styled-components'
-<<<<<<< HEAD
 import ShowRoute from '../../components/ShowRoute';
-=======
 import { motion } from 'framer-motion'
->>>>>>> origin/update-product-2
 
 const Div = styled.div `
   max-width: 600px;
@@ -178,10 +175,9 @@ const UpdateProduct = () => {
             />
           </label>
 
-<<<<<<< HEAD
+
           <button>Update</button>
           <BackLink to="/admin">&#8592; Back</BackLink>
-=======
           {/* Image URL */}
           <label>
             Image:
@@ -193,7 +189,7 @@ const UpdateProduct = () => {
               required 
             />
           </label>
->>>>>>> origin/update-product-2
+
 
           <BtnsContainer>
             <motion.button whileHover={{ scale: 1.01, backgroundColor:'skyblue'}}>
