@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link, } from 'react-router-dom'
 import styled from 'styled-components'
 import ShowRoute from '../../components/ShowRoute';
 import { motion } from 'framer-motion'
+import Colors from '../../Theme';
 
 const Div = styled.div `
   max-width: 600px;
@@ -24,6 +25,7 @@ const Form = styled.form `
     padding: 10px;
     border-radius: 8px;
     margin: 10px 0 10px 0;
+    border: 0;
   }
 
   label,
@@ -31,6 +33,11 @@ const Form = styled.form `
   textarea,
   button {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  input,
+  textarea {
+    border: 2px solid ${Colors.color3} ;  
   }
 
 `;
@@ -188,10 +195,9 @@ const UpdateProduct = () => {
 
 
           <BtnsContainer>
-            <motion.button whileHover={{ scale: 1.01, backgroundColor:'skyblue'}}>
+            <motion.button whileHover={{ scale: 1.01, backgroundColor: Colors.color3, color: Colors.white }}>
               Update
             </motion.button>
-            <BackLink to="/admin">&#8592; Back</BackLink>
           </BtnsContainer>
 
       </Form>
