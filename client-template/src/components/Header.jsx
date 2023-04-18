@@ -6,7 +6,7 @@ import ShowRoute from './ShowRoute';
 
 const Container = styled.header `
   display: grid;
-  grid-template-columns: minmax(10px, 1fr) [inner-start] minmax(0, 90rem) [inner-end] minmax(30px, 1fr);
+  grid-template-columns: minmax(30px, 1fr) [inner-start] minmax(0, 90rem) [inner-end] minmax(30px, 1fr);
   height: 96px;
   background-color: ${Colors.black};
 `;

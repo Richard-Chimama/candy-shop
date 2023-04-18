@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate, Link, } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import ShowRoute from '../../components/ShowRoute';
 import { motion } from 'framer-motion'
+import Colors from '../../Theme';
 
 const Div = styled.div `
   max-width: 600px;
@@ -12,6 +13,7 @@ const Div = styled.div `
 const Title = styled.h1`
   text-align: center;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 
 `;
 
 
@@ -33,19 +35,15 @@ const Form = styled.form `
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 
-`;
+  input,
+  textarea {
+    border: 2px solid ${Colors.color3} ;  
+  }
 
-const BtnsContainer = styled.div `
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`;
+  button {
+    border: 0;
+  }
 
-const BackLink = styled(Link) `
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #333;
-  text-decoration: none;
 `;
 
 const UpdateProduct = () => {
@@ -186,19 +184,13 @@ const UpdateProduct = () => {
             />
           </label>
 
-
-          <BtnsContainer>
-            <motion.button whileHover={{ scale: 1.01, backgroundColor:'skyblue'}}>
-              Update
-            </motion.button>
-            <BackLink to="/admin">&#8592; Back</BackLink>
-          </BtnsContainer>
+          <motion.button whileHover={{ scale: 1.01, backgroundColor: Colors.color3, color: Colors.white }}>Update</motion.button>
 
       </Form>
     }
 
   </Div>
-    </>
+  </>
   )
   
 }
