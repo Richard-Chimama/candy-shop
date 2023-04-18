@@ -62,7 +62,7 @@ const Container = styled.div`
   border: 1px solid #000;
   padding-bottom: 1rem;
   background-color: white;
-  width: 300px;
+  width: 380px;
   font-family: Roboto;
   font-size: 14px;
   z-index: 9999;

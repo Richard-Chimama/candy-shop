@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import LocalData from "../LocalData";
 import InputComponent from "../components/InputComponent";
+import ShowRoute from "../components/ShowRoute";
 import styled from "styled-components";
 
 
@@ -87,6 +88,12 @@ const Product = () => {
 
   return (
     <div> 
+
+      <ShowRoute
+        route={"/products/product"}
+       />
+
+
     <Div>
           <Bild src={product.image}   alt="here should be a image" />
 

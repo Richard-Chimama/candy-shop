@@ -20,6 +20,28 @@ const Products = () => {
   }, [])
 
 
+/* 
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://product-api-production-3a61.up.railway.app/products"
+      );
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+ */
+
 
 
   const addToLocalData = (data) => {
@@ -103,7 +125,7 @@ const Content = styled.div`
   align-items: center;
   border: 1px solid black;
   width: Calc(100%/3 - 1rem);
-  height: 350px;
+  height: 400px;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
   margin-top: 1rem;
