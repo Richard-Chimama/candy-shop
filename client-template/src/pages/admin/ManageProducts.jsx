@@ -111,6 +111,8 @@ const Table = styled.table`
   border-collapse: collapse;
   width: 100%;
   margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
 
   & tr:nth-child(even) {
     background-color: ${Colors.color4};
@@ -126,13 +128,14 @@ const Table = styled.table`
   }
 `;
 const TD = styled.td`
-  border: 1px solid black;
+  border: none;
   height: 40px;
   text-align: center;
 `;
 const CenterMessage = styled.div`
   text-align: center;
   vertical-align: middle;
+  
 `;
 
 const TH = styled(TD)`
