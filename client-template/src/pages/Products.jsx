@@ -5,6 +5,7 @@ import LocalData from "../LocalData";
 import InputComponent from "../components/InputComponent";
 import ShowRoute from "../components/ShowRoute";
 import Colors from "../Theme";
+import { motion } from "framer-motion"
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -86,18 +87,18 @@ const Products = () => {
       />
       <Container>
         {products.map((product) => (
-          <Content key={product._id}>
+          <Content as={motion.div} whileHover={{ scale: 1.02 }} key={product._id}>
             <Image src={product.image} alt={product.title} />
             <Details>
-              <div>{product.title}</div>
-              <div><b>{product.price} SEK</b></div>
+              <p>{product.title}</p>
+              <p><b>{product.price} SEK</b></p>
             </Details>
             <InputDetails>
               <InputComponent onDataReceived={handleInputComponent} />
               <Buton onClick={() => addToLocalData(product)}>Add to cart</Buton>
             </InputDetails>
             <ReadMore to={"/product/" + product._id}>
-              <i>Read more...</i>
+              <i>Information</i>
             </ReadMore>
           </Content>
         ))}
@@ -114,6 +115,10 @@ const Details = styled.div`
   gap: 5rem;
   margin-bottom: 0.7rem;
   margin-top: 0.7rem;
+
+  p {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
 `
 const InputDetails = styled.div`
   width: 90%;
@@ -125,6 +130,8 @@ const InputDetails = styled.div`
 `
 const ReadMore = styled(Link)`
   margin-bottom: 1rem;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
 `
 
 const Container = styled.div`
@@ -141,7 +148,7 @@ const Image = styled.img`
   border-radius: 8px;
 `;
 
-const Content = styled.div`
+const Content = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -163,7 +170,7 @@ const Buton = styled.button`
 	display:inline-block;
 	cursor:pointer;
 	color:${Colors.black};
-	font-family: Poppins;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-size:14px;
 	padding:12px;
 	text-decoration:none;
