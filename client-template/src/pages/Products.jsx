@@ -10,21 +10,17 @@ const Products = () => {
   const [InputValue, setInputValue] = useState(1);
   const { cartData, setCartData } = useContext(LocalData);
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://product-api-production-3a61.up.railway.app/products"
-      );
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
+
+  
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetch('https://product-api-production-3a61.up.railway.app/products')
+    .then(response => response.json())
+    .then(json => setProducts(json))
+  }, [])
+
+
+
 
   const addToLocalData = (data) => {
     const checkData = cartData.find((item) => item.id === data._id);
@@ -51,9 +47,14 @@ const Products = () => {
     }
   };
 
+  
+
+
   const handleInputComponent = (data) => {
     setInputValue(data);
   };
+
+
 
   return (
     <>
@@ -68,7 +69,7 @@ const Products = () => {
             <p>{product.price} SEK</p>
             <InputComponent onDataReceived={handleInputComponent} />
             <br />
-            <button onClick={() => addToLocalData(product)}>Add to cart</button>
+            <Buton onClick={() => addToLocalData(product)}>Add to cart</Buton>
             <p>In Stock</p>
 
             <Link to={"/product/" + product._id}>
@@ -80,6 +81,8 @@ const Products = () => {
     </>
   );
 };
+
+
 
 const Container = styled.div`
   display: flex;
@@ -106,4 +109,29 @@ const Content = styled.div`
   margin-top: 1rem;
   padding: 0.5rem;
 `;
+
+
+
+const Buton = styled.button`
+box-shadow: 0px 0px 10px 0px #eb0ece;
+	background-color:#f794e5;
+	border-radius:28px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:16px 31px;
+	text-decoration:none;
+
+&:hover {
+  background-color:#de74cb;
+}
+
+&:active {
+  position:relative;
+	top:1px;
+`;
+
 export default Products;
