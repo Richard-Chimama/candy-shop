@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import {FiTrash2} from "react-icons/fi"
 import { useNavigate } from "react-router-dom";
+import Colors from "../Theme";
 
 const Cart = ({ data, resetData, closeCart }) => {
   const navigate = useNavigate();
@@ -41,15 +42,15 @@ const Cart = ({ data, resetData, closeCart }) => {
       <hr />
       <p>Total price: {total} kr</p>
       <CartAction>
-        <button onClick={() => resetData([])}>Reset Cart</button>
-        <button
+        <Buton2 onClick={() => resetData([])}>Reset Cart</Buton2>
+        <Buton2
           onClick={() => {
             navigate("/checkout");
             closeCart(false);
           }}
         >
           Proceed to checkout
-        </button>
+        </Buton2>
       </CartAction>
     </Container>
   );
@@ -97,6 +98,25 @@ const Price = styled.div`
 const Image = styled.img`
   width: 70px;
   height: 70px;
+`;
+
+
+const Buton2 = styled.button`
+//box-shadow: 0px 0px 10px 0px #eb0ece;
+	background-color: ${Colors.black};
+	border-radius:28px;
+	border:1px solid #ffffff;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 14px;
+	text-decoration:none;
+
+&:active {
+  position:relative;
+	top:1px;
 `;
 
 export default Cart;
