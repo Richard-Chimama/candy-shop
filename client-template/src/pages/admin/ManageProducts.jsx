@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import Colors from "../../Theme";
+import ShowRoute from "../../components/ShowRoute";
 
 const URL = "https://product-api-production-3a61.up.railway.app/products";
 
@@ -52,15 +54,20 @@ const ManageProducts = () => {
     return <CenterMessage>{isError}</CenterMessage>;
   }
 
+  
+  
+
   return (
     <>
+      <ShowRoute route={"/products/admin"} navigateTO={"/"} />
       <Header>
-        <Title>ManageProducts</Title>
+        <Title>Manage Products</Title>
         <NavLink to={"/admin/create-product"}>Create new product</NavLink>
       </Header>
       <Table>
         <thead>
           <tr>
+            <TH>#</TH>
             <TH>Title</TH>
             <TH className="price">Price</TH>
             <TH className="stock">Stock</TH>
@@ -69,8 +76,9 @@ const ManageProducts = () => {
           </tr>
         </thead>
         <tbody>
-          {data.map((item) => (
+          {data.map((item, index) => (
             <tr key={item._id}>
+              <TD>{index + 1}</TD>
               <TD>{item.title}</TD>
               <TD>{item.price}</TD>
               <TD>{item.stock}</TD>
@@ -100,11 +108,11 @@ const NavLink = styled(Link)`
 
 const Table = styled.table`
   border-collapse: collapse;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 
   & tr:nth-child(even) {
-    background-color: lightgray;
+    background-color: ${Colors.color4};
   }
 
   & .actions {
@@ -131,15 +139,15 @@ const TH = styled(TD)`
   font-weight: 600;
   text-align: left;
   padding-left: 10px;
-  background-color: skyblue;
-  color: #000;
+  background-color: ${Colors.color1};
+  color: ${Colors.white};
 `;
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-content: center;
-  width: 70%;
-  margin: 2rem auto 1rem auto;
+  width: 100%;
+  margin: 0.5rem auto 1rem auto;
 `;
 
 export default ManageProducts;

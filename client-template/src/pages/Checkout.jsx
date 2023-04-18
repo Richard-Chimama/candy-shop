@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import LocalData from "../LocalData/";
 import { FiTrash2 } from "react-icons/fi";
 import styled from "styled-components";
+import ShowRoute from "../components/ShowRoute";
 
 const Checkout = () => {
   const { cartData, setCartData } = useContext(LocalData);
@@ -43,12 +44,19 @@ const Checkout = () => {
   };
 
   return (
+    <>
+    <ShowRoute
+        route={"/products/"}
+        navigateTO={"/"}
+      />
     <Container>
       <Content>
+      {
+        cartData.length > 0 ?
         <Table>
           <thead>
             <tr>
-              <TH colspan="5">Product</TH>
+              <TH colSpan="5">Product</TH>
             </tr>
           </thead>
           <TBODY>
@@ -73,23 +81,32 @@ const Checkout = () => {
               </tr>
             ))}
             <TotalRow>
-              <td className="text-total" colspan="3">
+              <td className="text-total" colSpan="3">
                 Total
               </td>
-              <td className="text-price" colspan="2">
+              <td className="text-price" colSpan="2">
                 {total} kr
               </td>
             </TotalRow>
           </TBODY>
         </Table>
+        :
+        <Message>No Item in the cart to checkout</Message>
+      }
       </Content>
     </Container>
+    </>
   );
 };
 
+const Message = styled.div`
+  height: 500px;
+
+`
+
 const Content = styled.div`
   margin-top: 2rem;
-  width: 70%;
+  width: 100%;
 `;
 
 const Container = styled.div`
