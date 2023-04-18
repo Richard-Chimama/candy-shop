@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import LocalData from "../LocalData";
 import InputComponent from "../components/InputComponent";
 import ShowRoute from "../components/ShowRoute";
+import Colors from "../Theme";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -113,8 +114,8 @@ const Content = styled.div`
 
 
 const Buton = styled.button`
-box-shadow: 0px 0px 10px 0px #eb0ece;
-	background-color:#f794e5;
+  box-shadow: 0px 0px 10px 0px #eb0ece;
+	background-color:${Colors.color6};
 	border-radius:28px;
 	border:1px solid #ffffff;
 	display:inline-block;
