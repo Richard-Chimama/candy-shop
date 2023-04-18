@@ -92,6 +92,10 @@ const Checkout = () => {
   );
 };
 
+const Message = styled.div`
+  height: 500px
+`;
+
 const Content = styled.div`
   margin-top: 2rem;
   width: 100%;
