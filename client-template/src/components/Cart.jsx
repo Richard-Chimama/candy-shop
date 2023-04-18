@@ -33,7 +33,7 @@ const Cart = ({ data, resetData, closeCart }) => {
           <Content key={item.id}>
             <Image src={item.image} alt={item.title} />
             <Title>{item.title}</Title>
-            {item.item} x {item.price}  kr
+            <P>{item.item} x {item.price}  kr</P>
             <Price>{item.item * item.price} kr</Price>
             <button onClick={()=>handleRemove(item.id)}><FiTrash2 size={15}/></button>
           </Content>
@@ -67,10 +67,11 @@ const Container = styled.div`
   font-family: Roboto;
   font-size: 14px;
   z-index: 9999;
+  border-radius: 8px;
 
   & > p {
     text-align: center;
-    font-weight: 600;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   }
 `;
 const CartAction = styled.div`
@@ -87,12 +88,20 @@ const Content = styled.div`
   gap: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-top 10px
 `;
+
+const P = styled.p`
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+font-size: 11px
+`;
+
 const Title = styled.div`
   flex-grow: 3;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 const Price = styled.div`
-  font-weight: 600;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
 const Image = styled.img`
@@ -100,14 +109,12 @@ const Image = styled.img`
   height: 70px;
 `;
 const Buton = styled.button`
-	background-color: ${Colors.black};
-	border-radius:28px;
+	border-radius: 8px;
 	border:1px solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size:15px;
 	padding:7px 14px;
 	text-decoration:none;
 
@@ -118,14 +125,14 @@ const Buton = styled.button`
 
 
 const Buton2 = styled.button`
-	background-color: ${Colors.color7};
-	border-radius:28px;
+	background-color: ${Colors.color3};
+	border-radius: 8px;
 	border:1px solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size:15px;
 	padding:7px 14px;
 	text-decoration:none;
 
