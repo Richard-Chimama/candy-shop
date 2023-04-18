@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import LocalData from "../LocalData/";
 import { FiTrash2 } from "react-icons/fi";
 import styled from "styled-components";
+import { motion } from 'framer-motion'
 
 const Checkout = () => {
   const { cartData, setCartData } = useContext(LocalData);
@@ -160,6 +161,10 @@ const Checkout = () => {
                         <Label htmlFor="">Email</Label>
                           <Input type="email" name="" id="" placeholder="example@gmail.com" />
                       </div>
+
+                      <div>
+                        <Button as={motion.button} whileHover={{scale: 1.01, backgroundColor: 'lightpink'}}>Order</Button>
+                      </div>
               </form>
             </ContainerInner>
         </ContainerDiv>
@@ -167,6 +172,12 @@ const Checkout = () => {
     </>
   );
 };
+
+const Button = styled(motion.button)`
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px
+`;
 
 const ContainerInner = styled.div`
   margin: 0 auto;
@@ -186,14 +197,14 @@ const FormBox1 = styled.div`
 const Input = styled.input`
   width: 100%;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   margin: 10px 0 10px 0;
 `;
 const Select = styled.select`
   width: 100%;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 10px;
   border-radius: 8px;
   margin: 10px 0 10px 0;
 `;
