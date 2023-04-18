@@ -136,7 +136,8 @@ const Container = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 300px;
+  height: 270px;
+  max-height: 300px;
   border-radius: 8px;
 `;
 

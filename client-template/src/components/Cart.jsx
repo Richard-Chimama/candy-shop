@@ -118,7 +118,6 @@ const Buton = styled.button`
 
 
 const Buton2 = styled.button`
-//box-shadow: 0px 0px 10px 0px #eb0ece;
 	background-color: ${Colors.color7};
 	border-radius:28px;
 	border:1px solid #ffffff;
