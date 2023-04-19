@@ -11,11 +11,6 @@ const Div = styled.div `
   margin: 0 auto;
 `;
 
-const Back = styled(Link) `
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: #333;
-`;
-
 const Title = styled.h1`
   text-align: center;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
