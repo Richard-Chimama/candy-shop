@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Colors from "../Theme";
 import { TiArrowBack } from "react-icons/ti";
 import { useNavigate } from "react-router-dom";
+import { motion } from 'framer-motion'
 
 const ShowRoute = ({ route, navigateTO }) => {
   const navigate = useNavigate();
@@ -10,7 +11,7 @@ const ShowRoute = ({ route, navigateTO }) => {
     <Container>
       <div>{route}</div>
       {navigateTO && (
-        <Button onClick={() => navigate(navigateTO)}>
+        <Button onClick={() => navigate(navigateTO)} whileHover= {{cursor:'pointer'}}>
           <TiArrowBack color={Colors.white} size={20} />
           Back
         </Button>
@@ -32,7 +33,7 @@ const Container = styled.div`
   font-family: 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
-const Button = styled.button`
+const Button = styled(motion.button)`
   background-color: transparent !important;
   border: none;
   border-radius: 10px;
