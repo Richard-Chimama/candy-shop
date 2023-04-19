@@ -39,6 +39,12 @@ const Form = styled.form`
     border: 2px solid ${Colors.color3}
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
   button {
     border:none;
   }
@@ -160,7 +166,7 @@ export const CreateProduct = () => {
               </div>
 
               <BtnDiv> 
-                  <motion.button whileHover={{ scale: 1.01, backgroundColor: Colors.color3, color: Colors.white }} type='submit'>Create</motion.button>
+                  <motion.button whileHover={{ scale: 1.01, backgroundColor: Colors.color3, color: Colors.white, cursor:'pointer' }} type='submit'>Create</motion.button>
               </BtnDiv>
             </Form>
           </Div>

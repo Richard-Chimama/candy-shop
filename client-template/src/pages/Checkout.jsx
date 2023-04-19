@@ -70,16 +70,24 @@ const Checkout = () => {
                 </TD>
                 <TD>{item.title}</TD>
                 <TD>
-                  <button onClick={() => handleDeleteItem(item.id)}>-</button>{" "}
-                  <button onClick={() => handleAddItem(item.id)}>+</button>
+                  <motion.button 
+                    whileHover= {{cursor:'pointer'}} 
+                    onClick={() => handleDeleteItem(item.id)}>
+                    -
+                  </motion.button>{" "}
+                  <motion.button 
+                    whileHover= {{cursor:'pointer'}} 
+                    onClick={() => handleAddItem(item.id)}>
+                    +
+                  </motion.button>
                 </TD>
                 <TD>
                   {item.item} x {item.price} kr
                 </TD>
                 <TD>
-                  <button onClick={() => handleDelete(item.id)}>
+                  <motion.button whileHover= {{cursor:'pointer'}} onClick={() => handleDelete(item.id)}>
                     <FiTrash2 size={20} color="red" />
-                  </button>
+                  </motion.button>
                 </TD>
               </tr>
             ))}
@@ -175,7 +183,7 @@ const Checkout = () => {
                       </div>
 
                       <div>
-                        <Button as={motion.button} whileHover={{scale: 1.01, backgroundColor: Colors.color3, color: Colors.white}}>Order</Button>
+                        <Button as={motion.button} whileHover={{scale: 1.01, backgroundColor: Colors.color3, color: Colors.white, cursor:'pointer'}}>Order</Button>
                       </div>
               </form>
             </ContainerInner>
