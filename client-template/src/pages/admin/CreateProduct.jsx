@@ -14,6 +14,8 @@ const Div = styled.div `
 const Title = styled.h1`
   text-align: center;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 2rem;
 `;
 
 const Form = styled.form`
