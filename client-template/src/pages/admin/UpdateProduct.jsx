@@ -195,8 +195,9 @@ const UpdateProduct = () => {
                 Colors.color3, 
                 color: Colors.white, 
                 cursor: 'pointer' 
-              }}>
-                Update
+              }}
+            >
+              Update
             </motion.button>
 
       </Form>
