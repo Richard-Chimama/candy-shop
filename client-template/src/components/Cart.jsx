@@ -71,11 +71,11 @@ const Container = styled.div`
   position: absolute;
   top: 2.7rem;
   right: 6rem;
-  border: 1px solid #000;
+  border: 1px solid ${Colors.black};
   padding-bottom: 1rem;
-  background-color: white;
+  background-color: ${Colors.white};
   width: 380px;
-  font-family: Roboto;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   font-size: 14px;
   z-index: 9999;
   border-radius: 8px;
@@ -117,7 +117,8 @@ const Price = styled.div`
 
 const Image = styled.img`
   width: 70px;
-  height: 70px;
+  height: 100%;
+  border-radius: 4px;
 `;
 const Buton = styled(motion.button)`
 	border-radius: 8px;
@@ -141,7 +142,7 @@ const Buton2 = styled(motion.button)`
 	border:1px solid #ffffff;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color: ${Colors.white};
 	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-size:15px;
 	padding:7px 14px;

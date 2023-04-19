@@ -138,7 +138,7 @@ const Product = () => {
 };
 
 const Bild = styled.img`
-  width: 600px;
+  width: 560px;
   height: 100%;
   border-radius: 8px;
 `;
@@ -169,7 +169,7 @@ display: inline-flex;
 align-items: center;
 justify-content: space-evenly;
 gap: 3rem;
-margin-top: 1rem;
+margin-top: 2rem;
 `;
 
 const BtnsContainer = styled(motion.div) `

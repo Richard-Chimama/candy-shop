@@ -196,11 +196,14 @@ const Checkout = () => {
 const TitleP = styled.h1`
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: center;
+  margin: 0;
+  padding-top: 2rem;
 `;
 
 const Button = styled(motion.button)`
   width: 100%;
   padding: 10px;
+  margin-top: 10px;
   border-radius: 8px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   border:none;
@@ -255,12 +258,14 @@ const ContainerDiv = styled.div`
 
 const Div = styled.div`
   border-bottom: 1px solid black;
-  margin-bottom 10px
+  margin-bottom 1rem;
 `;
 
 const P = styled.h1`
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding-bottom: 2rem;
 `;
 
 const Message = styled.div`
@@ -281,7 +286,8 @@ const Container = styled.div`
 
 const Image = styled.img`
   width: 75px;
-  height: 75px;
+  height: 100%;
+  border-radius: 4px;
 `;
 
 const Table = styled.table`
@@ -292,25 +298,29 @@ const Table = styled.table`
 const TH = styled.th`
   font-size: 20px;
   text-align: left;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+  margin: 0;
+  padding-bottom: 1rem;
 `;
 
 const TD = styled.td`
   width: 20%;
   text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+  padding: 1rem 0 1rem 0;
 `;
 
 const TBODY = styled.tbody`
-  border-top: 1px solid black;
+  border-top: 1px solid ${Colors.black};
 `;
-
-const TotalRow = styled.tr`
-  border-top: 1px solid black;
+  
+  const TotalRow = styled.tr`
+  border-top: 1px solid ${Colors.black};
   & > td {
     text-align: right;
     font-family: Roboto;
-    font-size: 22px;
-    padding-right: 2rem;
-    padding-top: 0.5rem;
+    font-size: 20px;
+    padding: 1rem 5rem 3rem 1rem; 
   }
 `;
 

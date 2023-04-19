@@ -100,6 +100,8 @@ const Title = styled.p`
   font-size: 25px;
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 2rem;
 `;
 
 const Links = styled(Link)`
@@ -139,10 +141,11 @@ const TD = styled.td`
   height: 40px;
   text-align: center;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-`;
-const CenterMessage = styled.div`
+  `;
+  const CenterMessage = styled.div`
   text-align: center;
   vertical-align: middle;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   
 `;
 

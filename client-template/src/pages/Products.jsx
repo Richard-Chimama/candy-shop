@@ -85,6 +85,7 @@ const Products = () => {
       <ShowRoute
         route={"/products/"}
       />
+      
       <Container>
         {products.map((product) => (
           <Content 
@@ -180,7 +181,7 @@ const Content = styled(motion.div)`
   height: 400px;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
 `;
 
 
