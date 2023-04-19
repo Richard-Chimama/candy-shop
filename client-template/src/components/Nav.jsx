@@ -60,11 +60,12 @@ const NavLink = styled(Link)`
   font-family: Roboto;
   font-size: 22px;
   color: #333;
-  padding-right: 1rem;
-  color: ${Colors.color1};
+  padding-right: 2rem;
+  color: ${Colors.color3};
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
   &:hover {
-    color: ${Colors.color2};
+    color: ${Colors.color1};
   }
 `;
 
