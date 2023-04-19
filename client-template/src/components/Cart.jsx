@@ -3,6 +3,7 @@ import styled from "styled-components";
 import {FiTrash2} from "react-icons/fi"
 import { useNavigate } from "react-router-dom";
 import Colors from "../Theme";
+import { motion } from "framer-motion";
 
 const Cart = ({ data, resetData, closeCart }) => {
   const navigate = useNavigate();
@@ -42,8 +43,18 @@ const Cart = ({ data, resetData, closeCart }) => {
       <hr />
       <p>Total price: {total} kr</p>
       <CartAction>
-        <Buton onClick={() => resetData([])}>Reset Cart</Buton>
-        <Buton2
+        <Buton 
+          as={motion.button} 
+          whileHover={{ scale: 1.02 }} 
+          onClick={() => resetData([])}
+        >
+          Reset Cart
+        
+        </Buton>
+        <Buton2 
+          as={motion.button} 
+          whileHover={{ scale: 1.02 }}
+
           onClick={() => {
             navigate("/checkout");
             closeCart(false);
@@ -108,7 +119,7 @@ const Image = styled.img`
   width: 70px;
   height: 70px;
 `;
-const Buton = styled.button`
+const Buton = styled(motion.button)`
 	border-radius: 8px;
 	border:1px solid #ffffff;
 	display:inline-block;
@@ -124,7 +135,7 @@ const Buton = styled.button`
 `;
 
 
-const Buton2 = styled.button`
+const Buton2 = styled(motion.button)`
 	background-color: ${Colors.color3};
 	border-radius: 8px;
 	border:1px solid #ffffff;

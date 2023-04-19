@@ -4,9 +4,8 @@ import LocalData from "../LocalData";
 import InputComponent from "../components/InputComponent";
 import ShowRoute from "../components/ShowRoute";
 import styled from "styled-components";
-import Colors from "../Theme";
 import { motion } from "framer-motion"
-
+import Colors from "../Theme";
 
 
 const Product = () => {
@@ -94,30 +93,40 @@ const Product = () => {
       <ShowRoute
         route={"/products/product"}
         navigateTO={"/"}
+
        />
 
 
     <Div>
-
           <Bild src={product.image}   alt="here should be a image" />
 
       <Kontent>
-
-        
-          <div key={product._id}>
+          <Content key={product._id}>
+            <div>
               <h2>{product.title}</h2>
               <p>{product.price} SEK</p>
               <p>{product.description}</p>
-              <p>Stock:{product.stock}</p>
-
-            <div>
-              <InputComponent onDataReceived={handleInputComponent} />
-
-              <Buton as={motion.button} whileHover={{ scale: 1.01, backgroundColor: Colors.color3, color: Colors.white }} onClick={() => addToLocalData(product)}>Add to cart</Buton> 
+              <p>Stock: {product.stock} pcs</p>
             </div>
-              
 
-          </div>
+              <BtnsContainer>
+                <InputComponent onDataReceived={handleInputComponent} />
+                <Buton 
+                  as={motion.button} 
+                  whileHover={{
+                    scale: 1.01, 
+                    backgroundColor: 
+                      Colors.color3, color: 
+                      Colors.white, 
+                      cursor: 'pointer' 
+                  }} 
+                  onClick={() => 
+                    addToLocalData(product)}
+                  >
+                    Add to cart
+                </Buton> 
+              </BtnsContainer>
+          </Content>
      
       </Kontent>
 
@@ -129,29 +138,42 @@ const Product = () => {
 };
 
 const Bild = styled.img`
+  width: 600px;
   height: 100%;
-
+  border-radius: 8px;
 `;
 
 const Kontent = styled.div`
 display: flex;
 justify-content: left;
 align-items: start;
-margin: 0 auto;
 
-p, 
-h2 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  margin-bottom: 10px;
-}
+`;
+
+const Content = styled.div`
+  h2,
+  p {
+    margin: 10px;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
 `;
 
 const Div = styled.div`
 display: inline-flex;
 align-items: center;
 justify-content: space-evenly;
-padding-top: 1rem;
 gap: 3rem;
+margin-top: 1rem;
+`;
+
+const BtnsContainer = styled(motion.div) `
+  padding-top: 1rem;
 `;
 
 const Buton = styled(motion.button)`
