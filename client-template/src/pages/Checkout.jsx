@@ -4,6 +4,7 @@ import { FiTrash2 } from "react-icons/fi";
 import styled from "styled-components";
 import ShowRoute from "../components/ShowRoute";
 import { motion } from 'framer-motion'
+import Colors from "../Theme";
 
 const Checkout = () => {
   const { cartData, setCartData } = useContext(LocalData);
@@ -50,6 +51,7 @@ const Checkout = () => {
         route={"/products/"}
         navigateTO={"/"}
       />
+      <TitleP>Checkout</TitleP>
     <Container>
       <Content>
       {
@@ -92,7 +94,7 @@ const Checkout = () => {
           </TBODY>
         </Table>
         :
-        <Message>No Item in the cart to checkout</Message>
+        <Message>No Item in the cart to checkout!</Message>
       }
       </Content>
     </Container>
@@ -173,7 +175,7 @@ const Checkout = () => {
                       </div>
 
                       <div>
-                        <Button as={motion.button} whileHover={{scale: 1.01, backgroundColor: 'lightpink'}}>Order</Button>
+                        <Button as={motion.button} whileHover={{scale: 1.01, backgroundColor: Colors.color3, color: Colors.white}}>Order</Button>
                       </div>
               </form>
             </ContainerInner>
@@ -183,10 +185,17 @@ const Checkout = () => {
   );
 };
 
+const TitleP = styled.h1`
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: center;
+`;
+
 const Button = styled(motion.button)`
   width: 100%;
   padding: 10px;
-  border-radius: 8px
+  border-radius: 8px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border:none;
 `;
 
 const ContainerInner = styled.div`
@@ -201,7 +210,8 @@ const InputContainer = styled.div`
 
 const FormBox1 = styled.div`
   display: flex;
-  gap: 10px
+  gap: 10px;
+  padding-top: 10px;
 `;
 
 const Input = styled.input`
@@ -210,17 +220,22 @@ const Input = styled.input`
   padding: 10px;
   border-radius: 8px;
   margin: 10px 0 10px 0;
+  border: 2px solid ${Colors.color3};
 `;
+
 const Select = styled.select`
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
   border-radius: 8px;
   margin: 10px 0 10px 0;
+  border: 2px solid ${Colors.color3};
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
 const Label = styled.label`
   display: block;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
 `;
 
 const ContainerDiv = styled.div`
@@ -235,13 +250,15 @@ const Div = styled.div`
   margin-bottom 10px
 `;
 
-const P = styled.p`
-  font-size: 20px;
-  text-align: left;
+const P = styled.h1`
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
-const Message = styled.div`
-  height: 500px;
 
+const Message = styled.div`
+  height: 200px;
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 `;
 
 const Content = styled.div`
@@ -277,6 +294,7 @@ const TD = styled.td`
 const TBODY = styled.tbody`
   border-top: 1px solid black;
 `;
+
 const TotalRow = styled.tr`
   border-top: 1px solid black;
   & > td {
