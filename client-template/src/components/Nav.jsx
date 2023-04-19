@@ -28,7 +28,10 @@ const Nav = () => {
 
   return (
     <Container>
-      <Logo src={ronsLogo} alt={"rons logo"} />
+
+      <Link to="/">
+        <Logo src={ronsLogo} alt={"rons logo"} />
+      </Link>
       <div>
         <NavLink to="/">Products</NavLink>
         <NavLink to="/admin">Admin</NavLink>

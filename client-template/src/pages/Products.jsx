@@ -87,7 +87,11 @@ const Products = () => {
       />
       <Container>
         {products.map((product) => (
-          <Content as={motion.div} whileHover={{ scale: 1.02 }} key={product._id}>
+          <Content 
+            as={motion.div} 
+            whileHover={{ scale: 1.02 }} 
+            key={product._id}
+          >
             <Image src={product.image} alt={product.title} />
             <Details>
               <p>{product.title}</p>
@@ -95,7 +99,18 @@ const Products = () => {
             </Details>
             <InputDetails>
               <InputComponent onDataReceived={handleInputComponent} />
-              <Buton onClick={() => addToLocalData(product)}>Add to cart</Buton>
+              <Buton 
+                to={motion.button} 
+                whileHover={{ 
+                  backgroundColor: Colors.color3,
+                  color: Colors.white,
+                  cursor: 'pointer' 
+                }} 
+                onClick={() => 
+                  addToLocalData(product)}
+                >
+                  Add to cart
+              </Buton>
             </InputDetails>
             <ReadMore to={"/product/" + product._id}>
               <i>Information</i>
@@ -127,6 +142,12 @@ const InputDetails = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 0.7rem;
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
 `
 const ReadMore = styled(Link)`
   margin-bottom: 1rem;
@@ -145,7 +166,7 @@ const Image = styled.img`
   width: 100%;
   height: 270px;
   max-height: 300px;
-  border-radius: 8px;
+  border-radius: 8px 8px 0 0;
 `;
 
 const Content = styled(motion.div)`
@@ -164,7 +185,7 @@ const Content = styled(motion.div)`
 
 
 
-const Buton = styled.button`
+const Buton = styled(motion.button)`
 	border-radius:8px;
 	border:1px solid #ffffff;
 	display:inline-block;
@@ -174,11 +195,6 @@ const Buton = styled.button`
 	font-size:14px;
 	padding:12px;
 	text-decoration:none;
-
-&:hover {
-  background-color: ${Colors.color1};
-  color:${Colors.white};
-}
 
 &:active {
   position:relative;

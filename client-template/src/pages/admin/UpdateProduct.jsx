@@ -39,6 +39,11 @@ const Form = styled.form `
     border: 2px solid ${Colors.color3} ;  
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+
   button {
     border: 0;
   }
@@ -183,7 +188,17 @@ const UpdateProduct = () => {
             />
           </label>
 
-          <motion.button whileHover={{ scale: 1.01, backgroundColor: Colors.color3, color: Colors.white }}>Update</motion.button>
+          <motion.button 
+            whileHover={{ 
+              scale: 1.01, 
+              backgroundColor: 
+                Colors.color3, 
+                color: Colors.white, 
+                cursor: 'pointer' 
+              }}
+            >
+              Update
+            </motion.button>
 
       </Form>
     }
