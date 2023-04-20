@@ -4,25 +4,20 @@ import LocalData from "../LocalData";
 import InputComponent from "../components/InputComponent";
 import ShowRoute from "../components/ShowRoute";
 import styled from "styled-components";
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 import Colors from "../Theme";
 
-
 const Product = () => {
-  const [ product, setProduct] = useState({});
+  const [product, setProduct] = useState(null);
   const [InputValue, setInputValue] = useState(1);
   const { cartData, setCartData } = useContext(LocalData);
   const { id } = useParams();
-  
 
- 
-  
-
-  useEffect(  ()  => {
-     fetch(`https://product-api-production-3a61.up.railway.app/products/${id}`)
-      .then(response => response.json())
-      .then(json => setProduct(json))
-  }, [])
+  useEffect(() => {
+    fetch(`https://product-api-production-3a61.up.railway.app/products/${id}`)
+      .then((response) => response.json())
+      .then((json) => setProduct(json));
+  }, []);
 
   const addToLocalData = (data) => {
     const checkData = cartData.find((item) => item.id === data._id);
@@ -49,90 +44,60 @@ const Product = () => {
     }
   };
 
-
-
-/*   
-
-  const handleInputChange = (e, id) => {
-    e.preventDefault();
-    setInputValue(e.target.value)
-    setCartData(
-      cartData.filter((el) => {
-        if (el.id === id) {
-          el.item = InputValue;
-        }
-        return el;
-      })
-    );
-  }
-
-
-  const getValue =(id)=>{
-    const value = cartData.find((item)=> item.id === id)
-    console.log(value)
-    if(value == undefined){
-      return 1
-    }else{
-      return value.item
-    }
-  } 
- */
-
-
-  
   const handleInputComponent = (data) => {
     setInputValue(data);
   };
 
-
-
-
   return (
-    <div> 
+    <div>
+      <ShowRoute route={"/products/product"} navigateTO={"/"} />
 
-      <ShowRoute
-        route={"/products/product"}
-        navigateTO={"/"}
+      {product ? (
+        <Div>
+          <motion.div
+            initial={{ x: -150 }}
+            animate={{ x: 10 }}
+            transition={{ ease: "easeIn", duration: 0.5 }}
+          >
+            <Bild src={product.image} alt="here should be a image" />
+          </motion.div>
 
-       />
+          <motion.div
+            initial={{x: 500}}
+            animate={{ x: 20 }}
+            transition={{ ease: "easeIn", duration: 0.5 }}
+          >
+            <Kontent>
+              <Content key={product._id}>
+                <div>
+                  <h2>{product.title}</h2>
+                  <p>{product.price} SEK</p>
+                  <p>{product.description}</p>
+                  <p>Stock: {product.stock} pcs</p>
+                </div>
 
-
-    <Div>
-          <Bild src={product.image}   alt="here should be a image" />
-
-      <Kontent>
-          <Content key={product._id}>
-            <div>
-              <h2>{product.title}</h2>
-              <p>{product.price} SEK</p>
-              <p>{product.description}</p>
-              <p>Stock: {product.stock} pcs</p>
-            </div>
-
-              <BtnsContainer>
-                <InputComponent onDataReceived={handleInputComponent} />
-                <Buton 
-                  as={motion.button} 
-                  whileHover={{
-                    scale: 1.01, 
-                    backgroundColor: 
-                      Colors.color3, color: 
-                      Colors.white, 
-                      cursor: 'pointer' 
-                  }} 
-                  onClick={() => 
-                    addToLocalData(product)}
+                <BtnsContainer>
+                  <InputComponent onDataReceived={handleInputComponent} />
+                  <Buton
+                    as={motion.button}
+                    whileHover={{
+                      scale: 1.01,
+                      backgroundColor: Colors.color3,
+                      color: Colors.white,
+                      cursor: "pointer",
+                    }}
+                    onClick={() => addToLocalData(product)}
                   >
                     Add to cart
-                </Buton> 
-              </BtnsContainer>
-          </Content>
-     
-      </Kontent>
-
-
-    </Div>
-
+                  </Buton>
+                </BtnsContainer>
+              </Content>
+            </Kontent>
+          </motion.div>
+        </Div>
+      ) : (
+        <div style={{height:450}}></div>
+      )}
     </div>
   );
 };
@@ -144,10 +109,9 @@ const Bild = styled.img`
 `;
 
 const Kontent = styled.div`
-display: flex;
-justify-content: left;
-align-items: start;
-
+  display: flex;
+  justify-content: left;
+  align-items: start;
 `;
 
 const Content = styled.div`
@@ -155,7 +119,8 @@ const Content = styled.div`
   p {
     margin: 10px;
     padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
 
   input::-webkit-outer-spin-button,
@@ -165,14 +130,14 @@ const Content = styled.div`
 `;
 
 const Div = styled.div`
-display: inline-flex;
-align-items: center;
-justify-content: space-evenly;
-gap: 3rem;
-margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 3rem;
+  margin-top: 2rem;
 `;
 
-const BtnsContainer = styled(motion.div) `
+const BtnsContainer = styled(motion.div)`
   padding-top: 1rem;
 `;
 
@@ -181,8 +146,8 @@ const Buton = styled(motion.button)`
   padding: 10px;
   border-radius: 8px;
   margin: 10px 0 10px 10px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 `;
-
 
 export default Product;

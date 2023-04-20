@@ -48,7 +48,7 @@ const Checkout = () => {
   return (
     <>
     <ShowRoute
-        route={"/products/"}
+        route={"/products/checkout"}
         navigateTO={"/"}
       />
       <TitleP>Checkout</TitleP>
