@@ -81,7 +81,7 @@ const Product = () => {
                   <Buton
                     as={motion.button}
                     whileHover={{
-                      scale: 1.01,
+                      scale: 1.04,
                       backgroundColor: Colors.color3,
                       color: Colors.white,
                       cursor: "pointer",
@@ -143,7 +143,7 @@ const BtnsContainer = styled(motion.div)`
 
 const Buton = styled(motion.button)`
   border: 0;
-  padding: 10px;
+  padding: 12px;
   border-radius: 8px;
   margin: 10px 0 10px 10px;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
