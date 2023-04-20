@@ -20,6 +20,7 @@ const Product = ({ product, handleInputComponent, addToLocalData }) => {
         <Buton
           to={motion.button}
           whileHover={{
+            scale: 1.04,
             backgroundColor: Colors.color3,
             color: Colors.white,
             cursor: "pointer",
