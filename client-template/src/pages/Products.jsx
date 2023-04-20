@@ -51,6 +51,7 @@ const Products = () => {
       <Container>
         {products.map((product) => (
           <Product
+            key={product._id}
             product={product}
             handleInputComponent={handleInputComponent}
             addToLocalData={addToLocalData}
